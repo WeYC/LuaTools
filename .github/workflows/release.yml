@@ -88,6 +88,31 @@ jobs:
           --channel win
           --outputDir Releases
 
+      # Velopack refuses to publish a version that is not strictly higher than what the channel
+      # already holds, and it fails at pack time with a one-line message. Checking here names the
+      # actual problem instead of leaving a bare "equal or greater" error.
+      - name: Check version is not a downgrade
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHANNEL_FILE="Releases/releases.win.json"
+          CURRENT="${{ steps.version.outputs.version }}"
+          if [ ! -f "$CHANNEL_FILE" ]; then
+            echo "No existing channel file; this is the first release. Fine."
+            exit 0
+          fi
+          LATEST=$(grep -oE '"version":"[^"]+"' "$CHANNEL_FILE" | head -1 | cut -d'"' -f4)
+          echo "Releasing $CURRENT; channel already has $LATEST"
+          if [ -z "$LATEST" ]; then
+            echo "Could not read the latest version; continuing."; exit 0
+          fi
+          HIGHER=$(printf '%s\n%s\n' "$LATEST" "$CURRENT" | sort -V | tail -1)
+          if [ "$HIGHER" != "$CURRENT" ] || [ "$LATEST" = "$CURRENT" ]; then
+            echo "::error title=Version would go backwards::v${CURRENT} is not higher than the already published v${LATEST}. Bump <Version> in src/LuaToolsGui/LuaToolsGui.csproj (or delete that release) and run again."
+            exit 1
+          fi
+          echo "OK: $LATEST -> $CURRENT"
+
       # --framework net10.0-x64-desktop: the setup installs the .NET 10 Desktop Runtime when missing.
       # --channel win keeps the asset naming identical to upstream (LuaTools-win-*).
       - name: Pack

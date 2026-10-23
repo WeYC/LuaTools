@@ -138,6 +138,36 @@ jobs:
             exit 1
           fi
 
+      # The fork's version tracks upstream (this is a stripped-down fork, kept deliberately close), but
+      # upstream does NOT keep <Version> in its csproj up to date: every tag from v1.1.3 through v1.3.2
+      # still declares 1.1.3, because their release flow passes the version to vpk separately. Without
+      # this step our csproj would keep saying 1.1.3 while the channel already holds 1.3.2, and
+      # `vpk pack` refuses to publish a version that is not strictly higher than the existing one.
+      - name: Align app version with upstream
+        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
+        env:
+          TAG: ${{ steps.decide.outputs.tag }}
+        run: |
+          set -euo pipefail
+          VERSION="${TAG#v}"
+          FILE=src/LuaToolsGui/LuaToolsGui.csproj
+
+          if grep -q '<Version>' "$FILE"; then
+            # Replace only the first <Version> element, which is the assembly version in the main
+            # PropertyGroup (package references also mention Version, but on other lines).
+            sed -i -E "0,/<Version>[^<]*<\/Version>/s//<Version>${VERSION}<\/Version>/" "$FILE"
+          else
+            sed -i -E "s/(<Product>[^<]*<\/Product>)/\1\n    <Version>${VERSION}<\/Version>/" "$FILE"
+          fi
+
+          echo "Declared version is now: $(grep -oE '<Version>[^<]+' "$FILE" | head -1)"
+          git add "$FILE"
+          if git diff --cached --quiet; then
+            echo "Version already aligned; nothing to commit."
+          else
+            git commit -m "Align app version with upstream ${TAG}"
+          fi
+
       - name: Push merged main
         if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
         run: |
