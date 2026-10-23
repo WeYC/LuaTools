@@ -79,7 +79,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>عام</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>التثبيت</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>المجتمع</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>تسجيل الخروج</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>تتصفح كضيف</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>سجّل الدخول لتنزيل الملفات وفتح محتوى DLC</value></data>
@@ -122,8 +121,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>إعادة التعيين إلى التلقائي</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>تحديث الألعاب تلقائيًا (عدم تثبيت الملفات)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>يثبّت دون تثبيت إصدار محدد، فيُبقي Steam الألعاب محدّثة. أوقفه لتثبيت الألعاب على الإصدار الذي نُزّل.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>التبرع بمفاتيح فك التشفير</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>شارك مفاتيح فك تشفير مستودعات Steam الفائضة لتوسيع مجمّع المجتمع. تُرسَل المفاتيح المُتحقَّق منها فقط — دون أي معلومات حساب أو بيانات شخصية.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>لم يُعثر على Steam</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>موقع مخصص</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>غير موجود</value></data>

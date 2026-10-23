@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GENEL</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>KURULUM</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>TOPLULUK</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Çıkış yap</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Misafir olarak geziniyor</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Manifestoları ve DLC kilit açmalarını indirmek için giriş yapın</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Otomatiğe sıfırla</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Uygulamaları otomatik güncelle (manifestoları kilitleme)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Bir sürümü sabitlemeden kurar, böylece Steam oyunları güncel tutar. Oyunları indirilen sürüme kilitlemek için kapatın.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Şifre çözme anahtarları bağışla</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Topluluk havuzunu büyütmek için fazlalık Steam depo şifre çözme anahtarlarını paylaşın. Yalnızca doğrulanmış anahtarlar gönderilir — hesap bilgisi veya kişisel veri içermez.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam bulunamadı</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Özel konum</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Bulunamadı</value></data>

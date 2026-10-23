@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>YLEISET</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>ASENNUS</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>YHTEISÖ</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Kirjaudu ulos</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Selaat vieraana</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Kirjaudu sisään ladataksesi manifesteja ja DLC-avauksia</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Palauta automaattiseksi</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Päivitä pelit automaattisesti (älä lukitse manifesteja)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Asentaa kiinnittämättä versiota, joten Steam pitää pelit ajan tasalla. Poista käytöstä lukitaksesi pelit ladattuun versioon.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Lahjoita salauksenpurkuavaimia</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Jaa ylimääräiset Steamin depo-salauksenpurkuavaimet kasvattaaksesi yhteisön varantoa. Vain vahvistetut avaimet lähetetään — ei tilitietoja tai henkilötietoja.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steamia ei löytynyt</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Mukautettu sijainti</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Ei löytynyt</value></data>

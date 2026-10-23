@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ÁLTALÁNOS</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>TELEPÍTÉS</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>KÖZÖSSÉG</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Kijelentkezés</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Böngészés vendégként</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Jelentkezz be a manifestek és DLC-feloldások letöltéséhez</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Visszaállítás automatikusra</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Játékok automatikus frissítése (ne zárolja a manifesteket)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Verzió rögzítése nélkül telepít, így a Steam naprakészen tartja a játékokat. Kapcsold ki, hogy a játékokat a letöltött verzióra zárold.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Visszafejtő kulcsok adományozása</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Oszd meg a felesleges Steam-depó visszafejtő kulcsaidat, hogy bővítsd a közösségi készletet. Csak ellenőrzött kulcsok kerülnek elküldésre — fiókadatok vagy személyes adatok nélkül.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>A Steam nem található</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Egyéni hely</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Nem található</value></data>

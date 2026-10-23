@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ОБЩИ</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>ИНСТАЛИРАНЕ</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>ОБЩНОСТ</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Изход</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Разглеждане като гост</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Влезте, за да изтегляте манифести и отключвания на DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Връщане към автоматично</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Автоматично обновяване на игрите (не заключвай манифестите)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Инсталира без да фиксира версия, така че Steam да поддържа игрите актуални. Изключете, за да заключите игрите към изтеглената версия.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Дарете ключове за декриптиране</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Споделете излишните ключове за декриптиране на депа на Steam, за да разширите общия фонд на общността. Изпращат се само валидирани ключове — без данни за акаунт или лична информация.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam не е намерен</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Персонализирано местоположение</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Не е намерено</value></data>

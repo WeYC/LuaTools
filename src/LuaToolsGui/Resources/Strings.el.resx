@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ΓΕΝΙΚΑ</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>ΕΓΚΑΤΑΣΤΑΣΗ</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>ΚΟΙΝΟΤΗΤΑ</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Αποσύνδεση</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Περιήγηση ως επισκέπτης</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Συνδεθείτε για να κατεβάσετε manifest και ξεκλειδώματα DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Επαναφορά σε αυτόματο</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Αυτόματη ενημέρωση παιχνιδιών (να μην κλειδώνονται τα manifest)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Εγκαθιστά χωρίς να καρφιτσώνει μια έκδοση, ώστε το Steam να κρατά τα παιχνίδια ενημερωμένα. Απενεργοποιήστε για να κλειδώσετε τα παιχνίδια στην έκδοση που κατεβάσατε.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Δωρεά κλειδιών αποκρυπτογράφησης</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Μοιραστείτε τα περίσσια κλειδιά αποκρυπτογράφησης depot του Steam για να μεγαλώσετε το κοινό απόθεμα της κοινότητας. Αποστέλλονται μόνο επικυρωμένα κλειδιά — χωρίς στοιχεία λογαριασμού ή προσωπικά δεδομένα.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Το Steam δεν βρέθηκε</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Προσαρμοσμένη τοποθεσία</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Δεν βρέθηκε</value></data>

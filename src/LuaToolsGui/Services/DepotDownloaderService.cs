@@ -290,7 +290,7 @@ public partial class DepotDownloaderService(
                 string vdf = Path.Combine(root, "config", "config.vdf");
                 if (File.Exists(vdf))
                 {
-                    foreach (var (depot, key) in DonateKeysService.ExtractKeys(File.ReadAllText(vdf)))
+                    foreach (var (depot, key) in SteamConfigKeys.ExtractKeys(File.ReadAllText(vdf)))
                         if (long.TryParse(depot, out long id) && !keys.ContainsKey(id)) keys[id] = key;
                 }
             }

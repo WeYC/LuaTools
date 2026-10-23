@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GERAL</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALAÇÃO</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMUNIDADE</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Sair</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Navegando como convidado</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Entre para baixar manifestos e desbloqueios de DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Redefinir para automático</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Atualizar apps automaticamente (não bloquear manifestos)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Instala sem fixar uma versão, para que o Steam mantenha os jogos atualizados. Desative para travar os jogos na versão baixada.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Doar chaves de descriptografia</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Compartilhe as chaves de descriptografia de depósito do Steam que sobrarem para ampliar o pool da comunidade. Apenas chaves validadas são enviadas — sem informações de conta ou dados pessoais.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam não encontrado</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Local personalizado</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Não encontrado</value></data>

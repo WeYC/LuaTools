@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>一般</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>安裝</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>社群</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>登出</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>以訪客身分瀏覽</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>登入以下載資訊清單與 DLC 解鎖</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>重設為自動</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>自動更新遊戲（不鎖定資訊清單）</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>安裝時不固定版本，讓 Steam 保持遊戲更新。關閉後會將遊戲鎖定在已下載的版本。</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>捐贈解密金鑰</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>分享多餘的 Steam 倉庫解密金鑰以擴充社群金鑰池。僅傳送已驗證的金鑰——不含帳戶資訊或個人資料。</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>找不到 Steam</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>自訂位置</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>找不到</value></data>

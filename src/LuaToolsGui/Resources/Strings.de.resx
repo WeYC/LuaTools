@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ALLGEMEIN</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLATION</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMMUNITY</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Abmelden</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Als Gast unterwegs</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Melde dich an, um Manifeste und DLC-Freischaltungen herunterzuladen</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Auf Automatisch zurücksetzen</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Apps automatisch aktualisieren (Manifeste nicht sperren)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installiert ohne eine Version festzulegen, sodass Steam Spiele aktuell hält. Deaktivieren, um Spiele auf die heruntergeladene Version festzulegen.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Entschlüsselungsschlüssel spenden</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Teile überschüssige Steam-Depot-Entschlüsselungsschlüssel, um den Community-Pool zu vergrößern. Es werden nur validierte Schlüssel gesendet — keine Kontoinformationen oder persönlichen Daten.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam nicht gefunden</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Benutzerdefinierter Speicherort</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Nicht gefunden</value></data>

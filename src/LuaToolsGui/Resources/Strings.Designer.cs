@@ -40,7 +40,6 @@ public static class Strings
     public static string Settings_Section_General => Get(nameof(Settings_Section_General));
     public static string Settings_Section_Steam => Get(nameof(Settings_Section_Steam));
     public static string Settings_Section_Install => Get(nameof(Settings_Section_Install));
-    public static string Settings_Section_Community => Get(nameof(Settings_Section_Community));
     public static string Settings_SignOut => Get(nameof(Settings_SignOut));
     public static string Settings_BrowsingAsGuest => Get(nameof(Settings_BrowsingAsGuest));
     public static string Settings_GuestHint => Get(nameof(Settings_GuestHint));
@@ -83,8 +82,6 @@ public static class Strings
     public static string Settings_ResetToAuto => Get(nameof(Settings_ResetToAuto));
     public static string Settings_AutoUpdateApps => Get(nameof(Settings_AutoUpdateApps));
     public static string Settings_AutoUpdateApps_Hint => Get(nameof(Settings_AutoUpdateApps_Hint));
-    public static string Settings_DonateKeys => Get(nameof(Settings_DonateKeys));
-    public static string Settings_DonateKeys_Hint => Get(nameof(Settings_DonateKeys_Hint));
     public static string Settings_Section_Startup => Get(nameof(Settings_Section_Startup));
     public static string Settings_StartWithWindows => Get(nameof(Settings_StartWithWindows));
     public static string Settings_StartWithWindows_Hint => Get(nameof(Settings_StartWithWindows_Hint));

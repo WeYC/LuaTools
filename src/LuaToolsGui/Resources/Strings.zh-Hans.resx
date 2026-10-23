@@ -79,7 +79,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>常规</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>安装</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>社区</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>退出登录</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>以访客身份浏览</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>登录以下载清单和 DLC 解锁</value></data>
@@ -122,8 +121,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>重置为自动</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>自动更新游戏（不锁定清单）</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>安装时不固定版本，让 Steam 保持游戏更新。关闭后会将游戏锁定在已下载的版本。</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>捐赠解密密钥</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>分享多余的 Steam 仓库解密密钥以扩充社区密钥池。仅发送已验证的密钥——不含账户信息或个人数据。</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>未找到 Steam</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>自定义位置</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>未找到</value></data>

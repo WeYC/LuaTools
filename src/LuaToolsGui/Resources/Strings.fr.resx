@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GÉNÉRAL</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLATION</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMMUNAUTÉ</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Se déconnecter</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Navigation en tant qu'invité</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Connectez-vous pour télécharger les manifests et les déblocages de DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Réinitialiser en auto</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Mettre à jour les apps automatiquement (ne pas verrouiller les manifests)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installe sans figer une version, afin que Steam garde les jeux à jour. Désactivez pour verrouiller les jeux sur la version téléchargée.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Donner des clés de déchiffrement</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Partagez les clés de déchiffrement de dépôt Steam en trop pour agrandir le pool communautaire. Seules les clés validées sont envoyées — aucune information de compte ni donnée personnelle.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam introuvable</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Emplacement personnalisé</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Introuvable</value></data>

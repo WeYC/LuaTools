@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GENERAL</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALARE</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMUNITATE</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Deconectează-te</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Navigare ca invitat</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Conectează-te pentru a descărca manifeste și deblocări DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Resetează la automat</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Actualizează automat jocurile (nu bloca manifestele)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Instalează fără a fixa o versiune, astfel încât Steam să mențină jocurile actualizate. Dezactivează pentru a bloca jocurile pe versiunea descărcată.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Donează chei de decriptare</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Partajează cheile de decriptare ale depozitelor Steam pe care nu le folosești pentru a mări fondul comunității. Se trimit doar chei validate — fără informații despre cont sau date personale.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam nu a fost găsit</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Locație personalizată</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Negăsit</value></data>

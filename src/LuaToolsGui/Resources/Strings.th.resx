@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ทั่วไป</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>การติดตั้ง</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>ชุมชน</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>ออกจากระบบ</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>กำลังเรียกดูแบบผู้เยี่ยมชม</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>เข้าสู่ระบบเพื่อดาวน์โหลด manifest และการปลดล็อก DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>รีเซ็ตเป็นอัตโนมัติ</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>อัปเดตเกมอัตโนมัติ (ไม่ล็อก manifest)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>ติดตั้งโดยไม่ตรึงเวอร์ชัน เพื่อให้ Steam อัปเดตเกมอยู่เสมอ ปิดเพื่อล็อกเกมไว้ที่เวอร์ชันที่ดาวน์โหลด</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>บริจาคคีย์ถอดรหัส</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>แบ่งปันคีย์ถอดรหัส depot ของ Steam ที่เหลือเพื่อขยายคลังของชุมชน จะส่งเฉพาะคีย์ที่ตรวจสอบแล้วเท่านั้น — ไม่มีข้อมูลบัญชีหรือข้อมูลส่วนตัว</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>ไม่พบ Steam</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>ตำแหน่งที่กำหนดเอง</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>ไม่พบ</value></data>

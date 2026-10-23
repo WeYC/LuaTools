@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GENERELT</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLASJON</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>FELLESSKAP</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Logg ut</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Surfer som gjest</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Logg inn for å laste ned manifester og DLC-opplåsinger</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Tilbakestill til automatisk</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Oppdater spill automatisk (ikke lås manifester)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installerer uten å feste en versjon, slik at Steam holder spillene oppdatert. Slå av for å låse spillene til den nedlastede versjonen.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Doner dekrypteringsnøkler</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Del overflødige Steam-depotdekrypteringsnøkler for å utvide fellesskapets pool. Bare validerte nøkler sendes — ingen kontoinformasjon eller personlige data.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam ble ikke funnet</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Egendefinert plassering</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Ikke funnet</value></data>

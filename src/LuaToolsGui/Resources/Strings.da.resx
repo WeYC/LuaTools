@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GENERELT</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLATION</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>FÆLLESSKAB</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Log ud</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Gennemser som gæst</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Log ind for at downloade manifester og DLC-oplåsninger</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Nulstil til automatisk</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Opdater spil automatisk (lås ikke manifester)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installerer uden at fastlåse en version, så Steam holder spil opdateret. Slå fra for at låse spil til den downloadede version.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Doner dekrypteringsnøgler</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Del overskydende Steam-depotdekrypteringsnøgler for at udvide fællesskabspuljen. Kun validerede nøgler sendes — ingen kontooplysninger eller personlige data.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam blev ikke fundet</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Brugerdefineret placering</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Ikke fundet</value></data>

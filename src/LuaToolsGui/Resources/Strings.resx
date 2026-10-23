@@ -79,7 +79,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GENERAL</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALL</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMMUNITY</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Sign out</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Browsing as guest</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Sign in to download manifests and DLC unlocks</value></data>
@@ -122,8 +121,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Reset to auto</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Auto Update Apps (Don't Lock Manifests)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installs without pinning a version, so Steam keeps games updated. Turn off to lock games to the downloaded version.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Donate Decryption Keys</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Share spare Steam depot decryption keys to grow the community pool. Only validated keys are sent, never account info or personal data.</value></data>
   <data name="Settings_Section_Startup" xml:space="preserve"><value>STARTUP</value></data>
   <data name="Settings_StartWithWindows" xml:space="preserve"><value>Start with Windows</value></data>
   <data name="Settings_StartWithWindows_Hint" xml:space="preserve"><value>Launch LuaTools automatically when Windows starts.</value></data>

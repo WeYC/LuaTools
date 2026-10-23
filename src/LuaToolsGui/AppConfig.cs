@@ -80,10 +80,6 @@ public static class AppConfig
     public const string ManifestBackendUrl = "http://167.235.229.108";
     public const string ManifestBackendUserAgent = "secretgoonpoon";
 
-    // The donate-keys endpoint gates on a DIFFERENT User-Agent than the manifest backend (it 403s
-    // otherwise). This matches the LuaTools plugin's config.USER_AGENT.
-    public const string DonateKeysUserAgent = "discord(dot)gg/luatools";
-
     // ── Umami analytics (anonymous app-launch counting) ──────────────
     public const string UmamiHost = "https://analytics.lua.tools";
     public const string UmamiWebsiteId = "820d782c-a434-424f-9f90-dee83dc6032e";

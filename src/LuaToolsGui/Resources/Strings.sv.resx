@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ALLMÄNT</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLATION</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>GEMENSKAP</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Logga ut</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Bläddrar som gäst</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Logga in för att ladda ner manifest och DLC-upplåsningar</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Återställ till automatisk</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Uppdatera spel automatiskt (lås inte manifest)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installerar utan att fästa en version, så att Steam håller spelen uppdaterade. Stäng av för att låsa spelen till den nedladdade versionen.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Donera dekrypteringsnycklar</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Dela med dig av överblivna Steam-depådekrypteringsnycklar för att utöka gemenskapens pool. Endast validerade nycklar skickas — ingen kontoinformation eller personuppgifter.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam hittades inte</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Anpassad plats</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Hittades inte</value></data>

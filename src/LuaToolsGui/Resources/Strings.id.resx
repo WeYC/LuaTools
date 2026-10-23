@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>UMUM</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>PEMASANGAN</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>KOMUNITAS</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Keluar</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Menjelajah sebagai tamu</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Masuk untuk mengunduh manifest dan pembukaan kunci DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Setel ulang ke otomatis</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Perbarui gim secara otomatis (jangan kunci manifest)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Memasang tanpa menyematkan versi, sehingga Steam menjaga gim tetap diperbarui. Matikan untuk mengunci gim pada versi yang diunduh.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Sumbangkan kunci dekripsi</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Bagikan kunci dekripsi depot Steam yang tidak terpakai untuk memperbesar kumpulan komunitas. Hanya kunci tervalidasi yang dikirim — tanpa info akun atau data pribadi.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam tidak ditemukan</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Lokasi kustom</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Tidak ditemukan</value></data>

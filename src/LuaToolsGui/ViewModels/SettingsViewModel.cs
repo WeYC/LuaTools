@@ -71,11 +71,6 @@ public partial class SettingsViewModel : ObservableObject
 
     partial void OnFastFetchChanged(bool value) => _settings.FastFetch = value;
 
-    /// <summary>Donate spare Steam decryption keys to the community pool. Persisted via SettingsService.</summary>
-    [ObservableProperty] private bool _donateKeys;
-
-    partial void OnDonateKeysChanged(bool value) => _settings.DonateKeys = value;
-
     // ── Startup behavior ────────────────────────────────────────────
     private const string RunKeyPath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
     private const string RunValueName = "LuaTools";
@@ -255,7 +250,6 @@ public partial class SettingsViewModel : ObservableObject
         RefreshSteam();
         _autoUpdateApps = settings.AutoUpdateApps; // init from saved value (default ON) without triggering Save
         _fastFetch = settings.FastFetch;
-        _donateKeys = settings.DonateKeys;
         _startWithWindows = settings.StartWithWindows; // default OFF. Init without triggering the registry write
         _minimizeToTray = settings.MinimizeToTray;
         _hubcapIsKeyConfigured = !string.IsNullOrEmpty(settings.HubcapApiKey);

@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>OBECNÉ</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALACE</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>KOMUNITA</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Odhlásit se</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Procházení jako host</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Přihlaste se ke stažení manifestů a odemknutí DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Obnovit na automatické</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Automaticky aktualizovat hry (nezamykat manifesty)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Instaluje bez připnutí verze, takže Steam udržuje hry aktuální. Vypněte pro uzamčení her na stažené verzi.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Darovat dešifrovací klíče</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Sdílejte přebytečné dešifrovací klíče depotů Steamu, abyste rozšířili komunitní fond. Odesílají se pouze ověřené klíče — žádné údaje o účtu ani osobní data.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam nenalezen</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Vlastní umístění</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Nenalezeno</value></data>

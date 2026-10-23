@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>OGÓLNE</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALACJA</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>SPOŁECZNOŚĆ</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Wyloguj się</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Przeglądanie jako gość</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Zaloguj się, aby pobierać manifesty i odblokowania DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Przywróć automatyczne</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Automatycznie aktualizuj gry (nie blokuj manifestów)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Instaluje bez przypinania wersji, dzięki czemu Steam aktualizuje gry. Wyłącz, aby zablokować gry na pobranej wersji.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Przekaż klucze deszyfrujące</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Udostępnij zbędne klucze deszyfrujące depotów Steam, aby powiększyć pulę społeczności. Wysyłane są tylko zweryfikowane klucze — bez informacji o koncie ani danych osobowych.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Nie znaleziono Steam</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Lokalizacja niestandardowa</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Nie znaleziono</value></data>

@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>GENERALE</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLAZIONE</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMMUNITY</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Disconnetti</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Navigazione come ospite</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Accedi per scaricare i manifest e gli sblocchi dei DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Ripristina automatico</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Aggiorna app automaticamente (non bloccare i manifest)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installa senza fissare una versione, così Steam mantiene i giochi aggiornati. Disattiva per bloccare i giochi sulla versione scaricata.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Dona chiavi di decrittazione</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Condividi le chiavi di decrittazione dei depot Steam in eccesso per ampliare il pool della comunità. Vengono inviate solo le chiavi validate, senza informazioni dell'account o dati personali.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam non trovato</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Percorso personalizzato</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Non trovato</value></data>

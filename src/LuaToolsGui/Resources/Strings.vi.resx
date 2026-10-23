@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>CHUNG</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>CÀI ĐẶT</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>CỘNG ĐỒNG</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Đăng xuất</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Đang duyệt với tư cách khách</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Đăng nhập để tải manifest và mở khóa DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Đặt lại về tự động</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Tự động cập nhật trò chơi (không khóa manifest)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Cài đặt mà không ghim một phiên bản, để Steam luôn cập nhật trò chơi. Tắt để khóa trò chơi ở phiên bản đã tải.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Quyên góp khóa giải mã</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Chia sẻ các khóa giải mã depot Steam dư thừa để mở rộng kho chung của cộng đồng. Chỉ những khóa đã xác thực mới được gửi — không có thông tin tài khoản hay dữ liệu cá nhân.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Không tìm thấy Steam</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Vị trí tùy chỉnh</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Không tìm thấy</value></data>

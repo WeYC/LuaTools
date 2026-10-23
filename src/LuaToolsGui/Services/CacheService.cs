@@ -15,11 +15,6 @@ public class CacheData
     // burst fresh into a still-counting window.
     public List<long> SteamApiRequestTimes { get; set; } = [];
 
-    // ── Donate Keys dedup (permanent) ────────────────────────────────
-    // Appids whose decryption keys have already been donated. The backend accepts each depot only
-    // once per IP, so this is permanent. A donated appid is never re-sent.
-    public List<string> DonatedAppIds { get; set; } = [];
-
     // ── Hardware appid blacklist (refreshed from GitHub, ~14-day TTL) ──
     // Steam "hardware" appids (Deck, Index, controllers, VR) to hide from featured/search.
     public List<long> HardwareAppIds { get; set; } = [];
@@ -72,8 +67,7 @@ public class CacheService
     /// dispatcher whenever an item finishes, while DepotDownloaderService and SteamlessService record
     /// tool versions from background threads mid-download. Two unsynchronized writers could interleave
     /// the file write or lose each other's field, and <see cref="Load"/> silently resets to an empty
-    /// cache on a parse failure — which would quietly wipe DonatedAppIds, a list that is permanent by
-    /// design because the backend accepts each depot only once per IP.
+    /// cache on a parse failure — which would quietly wipe every recorded value.
     /// </remarks>
     private readonly object _gate = new();
 
@@ -102,17 +96,6 @@ public class CacheService
     public void SaveSteamApiRequestTimes(IEnumerable<long> times)
     {
         _cache.SteamApiRequestTimes = times.ToList();
-        Save();
-    }
-
-    // ── Donate Keys dedup (permanent) ────────────────────────────────
-
-    /// <summary>Appids whose keys have already been donated (never re-sent).</summary>
-    public IReadOnlyCollection<string> GetDonatedAppIds() => _cache.DonatedAppIds;
-
-    public void SaveDonatedAppIds(IEnumerable<string> appIds)
-    {
-        _cache.DonatedAppIds = appIds.Distinct().ToList();
         Save();
     }
 
@@ -247,7 +230,6 @@ public class CacheService
         bool empty = _cache.OpenSteamToolsInstalledVersion is null
             && _cache.OpenSteamToolsInstalledZipDigest is null
             && _cache.SteamApiRequestTimes.Count == 0
-            && _cache.DonatedAppIds.Count == 0
             && _cache.HardwareAppIds.Count == 0
             && _cache.HardwareAppIdsFetchedAtMs == 0
             && _cache.LoadedAppIds.Count == 0
@@ -269,8 +251,8 @@ public class CacheService
 
         // Write-then-move, the same shape SettingsService uses. A bare WriteAllText that is interrupted
         // (crash, power loss, or a second writer) leaves truncated JSON, and Load() answers that by
-        // resetting to an empty cache — silently discarding everything, including the permanent
-        // DonatedAppIds list. File.Move over an existing file is atomic on NTFS.
+        // resetting to an empty cache — silently discarding everything. File.Move over an existing file
+        // is atomic on NTFS.
         string json = JsonSerializer.Serialize(_cache, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(TmpPath, json);
         File.Move(TmpPath, FilePath, overwrite: true);

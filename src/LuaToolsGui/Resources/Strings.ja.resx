@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>一般</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>インストール</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>コミュニティ</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>サインアウト</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>ゲストとして閲覧中</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>マニフェストとDLCのアンロックをダウンロードするにはサインインしてください</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>自動にリセット</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>アプリを自動更新（マニフェストをロックしない）</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>バージョンを固定せずにインストールするため、Steamがゲームを最新の状態に保ちます。オフにすると、ゲームをダウンロードしたバージョンに固定します。</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>復号鍵を寄付</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>余ったSteamのデポ復号鍵を共有して、コミュニティのプールを拡大しましょう。送信されるのは検証済みの鍵のみで、アカウント情報や個人データは含まれません。</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steamが見つかりません</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>カスタムの場所</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>見つかりません</value></data>

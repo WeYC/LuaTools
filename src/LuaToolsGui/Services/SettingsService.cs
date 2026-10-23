@@ -20,7 +20,6 @@ public class AppSettings
 
     // When true (default), donate spare Steam decryption keys to the community pool. Nullable so
     // "never set" (→ default ON) is distinguishable from an explicit user choice.
-    public bool? DonateKeys { get; set; }
 
     // Manage-page results-per-page. 0 = "All" (single infinite scroll). Nullable so "never set"
     // (→ default 24) is distinguishable from an explicit choice.
@@ -92,13 +91,6 @@ public class SettingsService
     {
         get => _settings.AutoUpdateApps ?? true; // default ON
         set { _settings.AutoUpdateApps = value; Save(); }
-    }
-
-    /// <summary>When true (default), donate spare Steam decryption keys to the community pool.</summary>
-    public bool DonateKeys
-    {
-        get => _settings.DonateKeys ?? true; // default ON
-        set { _settings.DonateKeys = value; Save(); }
     }
 
     /// <summary>Manage-page results-per-page (default 24). 0 = "All" (single infinite scroll).</summary>
@@ -223,7 +215,6 @@ public class SettingsService
         bool empty = _settings.SteamPathOverride is null
             && _settings.SelectedMode is null
             && _settings.AutoUpdateApps is null
-            && _settings.DonateKeys is null
             && _settings.ManagePageSize is null
             && _settings.FixesPageSize is null
             && _settings.BuildsPageSize is null

@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ОБЩЕЕ</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>УСТАНОВКА</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>СООБЩЕСТВО</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Выйти</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Просмотр как гость</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Войдите, чтобы скачивать манифесты и разблокировки DLC</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Сбросить на авто</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Автообновление игр (не блокировать манифесты)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Устанавливает без фиксации версии, чтобы Steam обновлял игры. Отключите, чтобы зафиксировать игры на скачанной версии.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Пожертвовать ключи расшифровки</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Поделитесь лишними ключами расшифровки депо Steam, чтобы пополнить общий пул сообщества. Отправляются только проверенные ключи — без данных аккаунта или личной информации.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam не найден</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Пользовательское расположение</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Не найдено</value></data>

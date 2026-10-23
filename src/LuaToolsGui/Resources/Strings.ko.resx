@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>일반</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>설치</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>커뮤니티</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>로그아웃</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>게스트로 탐색 중</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>매니페스트와 DLC 잠금 해제를 다운로드하려면 로그인하세요</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>자동으로 재설정</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>앱 자동 업데이트 (매니페스트 잠그지 않음)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>버전을 고정하지 않고 설치하여 Steam이 게임을 최신 상태로 유지합니다. 게임을 다운로드한 버전으로 잠그려면 끄세요.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>복호화 키 기부</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>남는 Steam 디포 복호화 키를 공유하여 커뮤니티 풀을 키우세요. 검증된 키만 전송되며, 계정 정보나 개인 데이터는 포함되지 않습니다.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam을 찾을 수 없음</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>사용자 지정 위치</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>찾을 수 없음</value></data>

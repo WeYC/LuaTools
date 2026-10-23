@@ -77,7 +77,6 @@
   <data name="Settings_Section_General" xml:space="preserve"><value>ALGEMEEN</value></data>
   <data name="Settings_Section_Steam" xml:space="preserve"><value>STEAM</value></data>
   <data name="Settings_Section_Install" xml:space="preserve"><value>INSTALLATIE</value></data>
-  <data name="Settings_Section_Community" xml:space="preserve"><value>COMMUNITY</value></data>
   <data name="Settings_SignOut" xml:space="preserve"><value>Afmelden</value></data>
   <data name="Settings_BrowsingAsGuest" xml:space="preserve"><value>Bladeren als gast</value></data>
   <data name="Settings_GuestHint" xml:space="preserve"><value>Meld je aan om manifesten en DLC-ontgrendelingen te downloaden</value></data>
@@ -120,8 +119,6 @@
   <data name="Settings_ResetToAuto" xml:space="preserve"><value>Terug naar automatisch</value></data>
   <data name="Settings_AutoUpdateApps" xml:space="preserve"><value>Apps automatisch bijwerken (manifesten niet vergrendelen)</value></data>
   <data name="Settings_AutoUpdateApps_Hint" xml:space="preserve"><value>Installeert zonder een versie vast te zetten, zodat Steam games up-to-date houdt. Schakel uit om games op de gedownloade versie te vergrendelen.</value></data>
-  <data name="Settings_DonateKeys" xml:space="preserve"><value>Decryptiesleutels doneren</value></data>
-  <data name="Settings_DonateKeys_Hint" xml:space="preserve"><value>Deel overtollige Steam-depotdecryptiesleutels om de communitypool te laten groeien. Alleen gevalideerde sleutels worden verzonden — geen accountgegevens of persoonlijke data.</value></data>
   <data name="Settings_SteamNotFound" xml:space="preserve"><value>Steam niet gevonden</value></data>
   <data name="Settings_SteamSource_Custom" xml:space="preserve"><value>Aangepaste locatie</value></data>
   <data name="Settings_SteamSource_NotFound" xml:space="preserve"><value>Niet gevonden</value></data>

@@ -35,7 +35,6 @@ public partial class App : Application
                 services.AddSingleton<Services.AppInfo.LaunchOptionsService>();
                 services.AddSingleton<LuaInstaller>();
                 services.AddSingleton<SteamLibraryService>();
-                services.AddSingleton<DonateKeysService>();
                 services.AddSingleton<AnalyticsService>();
                 services.AddSingleton<GithubProxy>();
                 services.AddSingleton<HardwareAppIdService>();
@@ -432,9 +431,6 @@ public partial class App : Application
         // updates to a STRICTLY HIGHER version, so every release must bump --packVersion.)
         if (Program.SessionTrayLock)
             _ = RunUpdateFlowAsync();
-
-        // Background, non-blocking key donation (runs only when the setting is on; silent + deduped).
-        _ = _host.Services.GetRequiredService<DonateKeysService>().SendPendingKeysIfEnabledAsync();
 
         // Anonymous app-launch ping (Umami). Fire-and-forget; never blocks.
         _ = _host.Services.GetRequiredService<AnalyticsService>().TrackAppLaunchAsync();
