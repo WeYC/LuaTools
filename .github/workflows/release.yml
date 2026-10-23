@@ -91,10 +91,14 @@ jobs:
       # Velopack refuses to publish a version that is not strictly higher than the one already in the
       # channel, and it fails at pack time with a one-line message that does not say what to change.
       #
-      # Because this fork's version just follows upstream, rebuilding the SAME version is the normal
-      # case (e.g. re-running a release after a workflow fix), so an identical version is not an error
-      # here: the existing release is deleted and this build replaces it. A version that is actually
-      # LOWER than the channel stays a hard failure — that would strand users on a newer build.
+      # Releasing the same version again is the normal case here, because the version just follows
+      # upstream: re-running a release after a workflow fix must replace the previous build instead of
+      # failing.
+      #
+      # This asks the GitHub API rather than parsing Releases/releases.win.json. That file is
+      # Velopack's own serialisation (its property casing is not a public contract), and grepping it
+      # silently yielded an empty version, which skipped the delete and let vpk fail later with
+      # "equal or greater". The API answer is exact and is also what the upload targets.
       - name: Replace an existing release of the same version
         id: resolve_channel
         shell: bash
@@ -104,35 +108,30 @@ jobs:
           set -euo pipefail
           CURRENT="${{ steps.version.outputs.version }}"
           TAG="v${CURRENT}"
-          CHANNEL_FILE="Releases/releases.win.json"
 
-          if [ ! -f "$CHANNEL_FILE" ]; then
-            echo "No existing channel file: nothing is published yet, proceeding."
+          # Versions of every published release in this repo, newest first (drafts excluded: they are
+          # not visible to users and vpk will overwrite them anyway).
+          PUBLISHED=$(gh release list --repo "$GITHUB_REPOSITORY" --limit 100 --exclude-drafts \
+                        --json tagName --jq '.[].tagName' | sed 's/^v//' | sort -V -r || true)
+
+          if [ -z "$PUBLISHED" ]; then
+            echo "No published releases yet; this is the first one."
             exit 0
           fi
 
-          LATEST=$(grep -oE '"version":"[^"]+"' "$CHANNEL_FILE" | head -1 | cut -d'"' -f4 || true)
-          if [ -z "$LATEST" ]; then
-            echo "Could not read a version from the channel file; proceeding."
-            exit 0
-          fi
-          echo "Releasing $CURRENT; channel already has $LATEST"
+          LATEST=$(printf '%s\n' "$PUBLISHED" | head -1)
+          echo "Releasing $CURRENT; newest published release is $LATEST"
 
-          if [ "$LATEST" = "$CURRENT" ]; then
+          if printf '%s\n' "$PUBLISHED" | grep -qxF "$CURRENT"; then
             echo "::notice title=Replacing v${CURRENT}::A release for v${CURRENT} already exists; deleting the release so this build replaces it."
-            # Delete the RELEASE only. The git tag is deliberately kept: --cleanup-tag would remove
-            # refs/tags/$TAG as well, and the tag is this repo's own record of the commit behind the
-            # version, not something a rebuild should discard.
-            if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-              gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes
-              echo "Deleted the existing release $TAG (its git tag stays)."
-            else
-              echo "No GitHub release for $TAG; the channel file was stale. Continuing."
-            fi
+            # Delete the RELEASE only. --cleanup-tag would also remove refs/tags/$TAG, and that tag is
+            # this repo's record of the commit behind the version, which a rebuild must not discard.
+            gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes
+            echo "Deleted the existing release $TAG (its git tag stays)."
 
-            # The downloaded channel files still describe the release we just deleted (and still
-            # contain its entry), which is what vpk actually validates against at pack time. Drop
-            # them and refetch, so packing starts from the real remaining state.
+            # The channel files on disk still describe the release just deleted, and those files are
+            # what vpk actually validates against at pack time. Drop them and refetch so packing starts
+            # from the real remaining state.
             rm -rf Releases
             echo "Re-downloading the remaining releases to rebuild the channel state."
             vpk download github \
