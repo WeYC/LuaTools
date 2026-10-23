@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using LuaToolsGui.Services;
 using LuaToolsGui.ViewModels;
 using LuaToolsGui.Views;
@@ -132,9 +132,6 @@ public partial class MainWindow : Wpf.Ui.Controls.FluentWindow
 
     /// <summary>Switch to Fixes (used by the protocol handler to open a specific game's fixes).</summary>
     public void NavigateToFixes() => RootNavigation.Navigate(typeof(FixesView));
-
-    /// <summary>Switch to Plugin (used by Home's "Plugin Status" tile).</summary>
-    public void NavigateToPlugin() => RootNavigation.Navigate(typeof(PluginView));
 
     /// <summary>Switch to Mode (used by Home's mode status row).</summary>
     public void NavigateToMode() => RootNavigation.Navigate(typeof(ModeView));

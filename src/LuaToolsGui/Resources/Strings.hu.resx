@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Üdvözöl a LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Hozzáadott Luák</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>UTOLJÁRA HOZZÁADVA</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Bővítmény állapota</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Nemrég hozzáadott</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Részletek megtekintése</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Steam ellenőrzése…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Bejelentkezve ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Ajánlott beállítások alkalmazása</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Mód: BetterSteamTools · FastFetch bekapcsolva</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Híres bővítményünk telepítése</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Hozzáadja az „Add via LuaTools” gombot a Steam áruház oldalaihoz.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Igen, kérem</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Nem, köszönöm</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Vágjunk bele!</value></data>
@@ -375,48 +372,6 @@ Ez törli a .lua fájlokat a Steam\config\stplug-in mappából.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Automatikus letöltés az első elérhető forrásból</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Nem található elérhető forrás ehhez a játékhoz</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· innen: {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>LuaTools bővítmény</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>A LuaTools Steam bővítmény! — Mostantól LuaLoader a Shittenium helyett</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Állapot</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Frissítés érhető el</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Telepített verzió</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Legújabb verzió</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Betöltő (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium észlelve — a LuaTools mellette fut. A telepítés letiltja e bővítmény Millennium-féle másolatát, hogy csak a LuaLoader injektáljon.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>A LuaLoader a Steam mappájába települ. Ez az alkalmazás háttérként működik — ha a tálcáról bezárod, a bővítmény többé nem működik!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Telepítés</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Frissítés</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Újratelepítés</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Eltávolítás</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Frissítések keresése</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Ellenőrzés…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Telepítve</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Nincs telepítve</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Naprakész</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Elavult</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>ismeretlen</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>offline</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>A GitHub nem érhető el a frissítések ellenőrzéséhez.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Egy másik program már használja a 8080-as portot — előfordulhat, hogy a bővítmény böngészőhídja nem működik. Zárd be, ami ezt a portot használja, majd telepítsd újra vagy indítsd újra a Steamet.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Ez bezárja és újraindítja a Steamet a betöltő alkalmazásához. Folytatja?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Steam újraindítása</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Bővítmény</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>A bővítmény telepítve. A Steam újraindul a betöltéséhez.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>A telepítés sikertelen: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>A bővítmény eltávolítva. A Steam újraindul.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Az eltávolítás sikertelen: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Elérhető egy frissítés.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Naprakész vagy.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>A Steam telepítése nem található.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>A GitHub nem érhető el a legújabb kiadás letöltéséhez.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>A(z) {0} kiadásból hiányzik: {1} vagy {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>A(z) {0} hash-ellenőrzése sikertelen.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>A plugin.zip nem tartalmazta a public/luatools.js fájlt.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Fő funkciók</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>„Add via LuaTools” gombot ad a Steam áruház oldalaihoz</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Automatikusan frissül</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Millenniummal és anélkül is működik</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…vagy húzz ide egy SteamDB / Steam áruház hivatkozást a játék hozzáadásához.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Tárolók kezelése</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Névjegy</value></data>

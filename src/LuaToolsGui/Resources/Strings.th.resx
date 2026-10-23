@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>ยินดีต้อนรับสู่ LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua ที่มีอยู่</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>เพิ่มล่าสุด</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>สถานะปลั๊กอิน</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>เพิ่มเมื่อเร็ว ๆ นี้</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>ดูรายละเอียด</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>กำลังตรวจสอบ Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>ลงชื่อเข้าใช้แล้ว ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>ใช้การตั้งค่าที่แนะนำ</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>โหมด: BetterSteamTools · เปิด FastFetch</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>ติดตั้งปลั๊กอินชื่อดังของเรา</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>เพิ่มปุ่ม "Add via LuaTools" ในหน้าร้านค้า Steam</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>ตกลง</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>ไม่เป็นไร ขอบคุณ</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>ไปกันเลย!</value></data>
@@ -375,48 +372,6 @@
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>ดาวน์โหลดอัตโนมัติจากแหล่งแรกที่พร้อมใช้งาน</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>ไม่พบแหล่งที่พร้อมใช้งานสำหรับเกมนี้</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· ผ่าน {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>ปลั๊กอิน LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>ปลั๊กอิน LuaTools สำหรับ Steam! — ตอนนี้ใช้ LuaLoader แทน Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>สถานะ</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>มีอัปเดต</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>เวอร์ชันที่ติดตั้ง</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>เวอร์ชันล่าสุด</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>ฟรอนต์เอนด์</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>ตัวโหลด (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>ตรวจพบ Millennium — LuaTools ทำงานควบคู่กับมัน การติดตั้งจะปิดใช้งานสำเนาปลั๊กอินนี้ของ Millennium เพื่อให้เฉพาะ LuaLoader ทำการฉีดเท่านั้น</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader จะติดตั้งลงในโฟลเดอร์ Steam ของคุณ แอปนี้ทำงานเป็นแบ็กเอนด์ — หากคุณปิดจากถาดระบบ ปลั๊กอินจะไม่ทำงานอีกต่อไป!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>ติดตั้ง</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>อัปเดต</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>ติดตั้งใหม่</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>ถอนการติดตั้ง</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>ตรวจหาการอัปเดต</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>กำลังตรวจสอบ…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>ติดตั้งแล้ว</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>ยังไม่ได้ติดตั้ง</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>เป็นเวอร์ชันล่าสุด</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>ล้าสมัย</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>ไม่ทราบ</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>ออฟไลน์</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>ไม่สามารถเชื่อมต่อ GitHub เพื่อตรวจหาการอัปเดตได้</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>โปรแกรมอื่นกำลังใช้พอร์ต 8080 อยู่แล้ว — บริดจ์เบราว์เซอร์ของปลั๊กอินอาจทำงานไม่ได้ ปิดโปรแกรมที่ใช้พอร์ตนั้น แล้วติดตั้งใหม่หรือรีสตาร์ท Steam</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>การดำเนินการนี้จะปิดและรีสตาร์ท Steam เพื่อใช้ตัวโหลด ดำเนินการต่อหรือไม่?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>รีสตาร์ท Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>ปลั๊กอิน</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>ติดตั้งปลั๊กอินแล้ว Steam กำลังรีสตาร์ทเพื่อโหลด</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>การติดตั้งล้มเหลว: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>ลบปลั๊กอินแล้ว Steam กำลังรีสตาร์ท</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>การถอนการติดตั้งล้มเหลว: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>มีอัปเดตพร้อมใช้งาน</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>คุณใช้เวอร์ชันล่าสุดอยู่แล้ว</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>ไม่พบการติดตั้ง Steam</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>ไม่สามารถเชื่อมต่อ GitHub เพื่อดึงรุ่นล่าสุดได้</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>รุ่น {0} ขาด {1} หรือ {2}</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>การตรวจสอบแฮชของ {0} ล้มเหลว</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip ไม่มี public/luatools.js</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>ฟีเจอร์เด่น</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>เพิ่มปุ่ม “Add via LuaTools” ในหน้าร้านค้า Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>อัปเดตตัวเองโดยอัตโนมัติ</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>ทำงานได้ทั้งที่มีและไม่มี Millennium</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…หรือลากลิงก์ SteamDB / ร้านค้า Steam มาวางเพื่อเพิ่มเกมนั้น</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>จัดการดีโป</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>เกี่ยวกับ</value></data>

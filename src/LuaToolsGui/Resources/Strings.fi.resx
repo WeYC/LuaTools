@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Tervetuloa LuaToolsiin</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua-tiedostoja</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>VIIMEKSI LISÄTTY</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Laajennuksen tila</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Äskettäin lisätyt</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Näytä tiedot</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Tarkistetaan Steamia…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Kirjauduttu sisään ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Ota suositellut asetukset käyttöön</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Tila: BetterSteamTools · FastFetch päällä</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Asenna kuuluisa lisäosamme</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Lisää "Add via LuaTools" -painikkeen Steamin kauppasivuille.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Kyllä kiitos</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Ei kiitos</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Aloitetaan!</value></data>
@@ -375,48 +372,6 @@ Tämä poistaa .lua-tiedostot kansiosta Steam\config\stplug-in.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Automaattinen lataus ensimmäisestä saatavilla olevasta lähteestä</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Tälle pelille ei löytynyt saatavilla olevia lähteitä</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· kautta {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>LuaTools-laajennus</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>LuaTools-Steam-laajennus! — Käyttää nyt LuaLoaderia Shitteniumin sijaan</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Tila</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Päivitys saatavilla</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Asennettu versio</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Uusin versio</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Käyttöliittymä</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Lataaja (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium havaittu — LuaTools toimii sen rinnalla. Asennus poistaa käytöstä Millenniumin oman kopion tästä laajennuksesta, jotta vain LuaLoader injektoi.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader asennetaan Steam-kansioosi. Tämä sovellus toimii taustajärjestelmänä — jos suljet sen ilmaisinalueelta, laajennus lakkaa toimimasta!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Asenna</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Päivitä</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Asenna uudelleen</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Poista asennus</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Tarkista päivitykset</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Tarkistetaan…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Asennettu</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Ei asennettu</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Ajan tasalla</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Vanhentunut</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>tuntematon</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>offline</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>GitHubiin ei saatu yhteyttä päivitysten tarkistamiseksi.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Toinen ohjelma käyttää jo porttia 8080 — laajennuksen selainsilta ei ehkä toimi. Sulje kyseistä porttia käyttävä ohjelma ja asenna uudelleen tai käynnistä Steam uudelleen.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Tämä sulkee ja käynnistää Steamin uudelleen lataajan käyttöönottamiseksi. Jatketaanko?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Käynnistä Steam uudelleen</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Laajennus</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Laajennus asennettu. Steam käynnistyy uudelleen ladatakseen sen.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Asennus epäonnistui: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Laajennus poistettu. Steam käynnistyy uudelleen.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Asennuksen poisto epäonnistui: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Päivitys on saatavilla.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Olet ajan tasalla.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Steam-asennusta ei löytynyt.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>GitHubiin ei saatu yhteyttä uusimman julkaisun hakemiseksi.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Julkaisusta {0} puuttuu {1} tai {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Kohteen {0} tiivisteen tarkistus epäonnistui.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip ei sisältänyt tiedostoa public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Keskeiset ominaisuudet</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Lisää “Add via LuaTools” -painikkeen Steam-kaupan sivuille</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Päivittää itsensä automaattisesti</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Toimii Millenniumin kanssa tai ilman</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…tai vedä tähän SteamDB- tai Steam-kauppalinkki lisätäksesi kyseisen pelin.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Hallitse varastoja</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Tietoja</value></data>

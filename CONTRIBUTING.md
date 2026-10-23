@@ -20,7 +20,7 @@ dotnet test
 ### Releases
 
 Official builds are packaged and signed by the maintainers, so the release tooling isn't part of
-this repo. Released builds are framework-dependent (~10 MB) and the setup auto-installs the .NET 8
+this repo. Released builds are framework-dependent (~10 MB) and the setup auto-installs the .NET 10
 Desktop Runtime on a clean machine; the app then self-updates through Velopack.
 
 To produce a local build for testing, `dotnet publish -c Release` is enough.
@@ -36,7 +36,7 @@ To produce a local build for testing, `dotnet publish -c Release` is enough.
 
 ## Contribution Guidelines
 
-Three rules are non-negotiable.
+Two rules are non-negotiable.
 
 ### 1. Every user-facing string must be localized
 
@@ -69,16 +69,3 @@ await gh.DownloadAsync(url, dest, progress, ct);      // release-asset binaries
 
 The Velopack auto-updater is covered too. `UpdateService` passes a `ProxiedFileDownloader` that
 reuses `GithubProxy.Candidates`, so the update feed and `.nupkg` fall back to mirrors as well.
-
-### 3. Store-page plugin calls go through `callServerMethod`
-
-The injected store-page script runs inside an HTTPS page and cannot raw-`fetch` a localhost
-backend; mixed-content policy kills it silently. Any new store-page → backend call must go through
-`Millennium.callServerMethod("luatools", "<Name>", args)` and needs a matching entry in
-`CefInjectorService.CallBackendMethod`'s `methodMap`. An unmapped name silently no-ops instead of
-erroring.
-
-`Millennium.callServerMethod` resolves one of two ways depending on the user's setup: under
-Millennium it's the framework's own object, and otherwise it's the queue-based polyfill
-`CefInjectorService` injects ahead of the plugin script. Either way the actual HTTP request is made
-outside the browser, which is what sidesteps the mixed-content block.

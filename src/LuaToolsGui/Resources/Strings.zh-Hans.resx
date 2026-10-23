@@ -140,7 +140,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>欢迎使用 LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>已添加的 Lua</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>最近添加</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>插件状态</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>最近添加</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>查看详情</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>正在检查 Steam…</value></data>
@@ -186,8 +185,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>已登录 ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>应用推荐设置</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>模式：BetterSteamTools · 开启 FastFetch</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>安装我们著名的插件</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>在 Steam 商店页面添加“Add via LuaTools”按钮。</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>好的</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>不用了</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>开始吧！</value></data>
@@ -395,48 +392,6 @@
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>自动从首个可用源下载</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>未找到此游戏的可用源</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· 来源：{0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>LuaTools 插件</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>LuaTools 的 Steam 插件！ — 现已改用 LuaLoader 代替 Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>状态</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>有可用更新</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>已安装版本</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>最新版本</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>前端</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>加载器 (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>检测到 Millennium——LuaTools 与其并行运行。安装会禁用 Millennium 自带的该插件副本，以便仅由 LuaLoader 注入。</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader 会安装到你的 Steam 文件夹。此应用作为后端运行——如果你从托盘关闭它，插件将无法再工作！</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>安装</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>更新</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>重新安装</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>卸载</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>检查更新</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>正在检查…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>已安装</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>未安装</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>已是最新</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>已过期</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>未知</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>离线</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>无法连接 GitHub 以检查更新。</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>另一个程序已在使用端口 8080 — 插件的浏览器桥接可能无法工作。请关闭占用该端口的程序，然后重新安装插件或重启 Steam。</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>这将关闭并重启 Steam 以应用加载器。是否继续？</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>重启 Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>插件</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>插件已安装。Steam 正在重启以加载它。</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>安装失败：{0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>插件已移除。Steam 正在重启。</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>卸载失败：{0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>有可用更新。</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>你已是最新版本。</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>未找到 Steam 安装。</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>无法连接 GitHub 以获取最新版本。</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>版本 {0} 缺少 {1} 或 {2}。</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>{0} 的哈希校验失败。</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip 未包含 public/luatools.js。</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>主要功能</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>在 Steam 商店页面添加“Add via LuaTools”按钮</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>自动保持更新</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>无论是否安装 Millennium 都能使用</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…也可以拖入 SteamDB / Steam 商店链接来添加该游戏。</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>管理仓库</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>关于</value></data>

@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Chào mừng đến với LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua đã có</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>THÊM GẦN NHẤT</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Trạng thái plugin</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Mới thêm gần đây</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Xem chi tiết</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Đang kiểm tra Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Đã đăng nhập ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Áp dụng cài đặt được đề xuất</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Chế độ: BetterSteamTools · Bật FastFetch</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Cài đặt plugin nổi tiếng của chúng tôi</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Thêm nút "Add via LuaTools" vào các trang cửa hàng Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Vâng</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Không, cảm ơn</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Bắt đầu thôi!</value></data>
@@ -375,48 +372,6 @@ Thao tác này xóa các tệp .lua khỏi Steam\config\stplug-in.</value></data
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Tự động tải xuống từ nguồn có sẵn đầu tiên</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Không tìm thấy nguồn khả dụng cho trò chơi này</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· qua {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Plugin LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Plugin LuaTools cho Steam! — Giờ đây dùng LuaLoader thay cho Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Trạng thái</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Có bản cập nhật</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Phiên bản đã cài</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Phiên bản mới nhất</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Trình tải (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Đã phát hiện Millennium — LuaTools chạy song song với nó. Việc cài đặt sẽ tắt bản sao plugin này của Millennium để chỉ LuaLoader chèn.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader được cài vào thư mục Steam của bạn. Ứng dụng này hoạt động như backend — nếu bạn đóng nó từ khay hệ thống, plugin sẽ ngừng hoạt động!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Cài đặt</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Cập nhật</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Cài đặt lại</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Gỡ cài đặt</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Kiểm tra cập nhật</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Đang kiểm tra…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Đã cài đặt</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Chưa cài đặt</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Đã cập nhật</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Đã lỗi thời</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>không rõ</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>ngoại tuyến</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Không thể kết nối GitHub để kiểm tra cập nhật.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Một chương trình khác đang sử dụng cổng 8080 — cầu nối trình duyệt của plugin có thể không hoạt động. Đóng chương trình đang dùng cổng đó rồi cài lại hoặc khởi động lại Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Thao tác này sẽ đóng và khởi động lại Steam để áp dụng trình tải. Tiếp tục?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Khởi động lại Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Plugin</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Đã cài plugin. Steam đang khởi động lại để tải nó.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Cài đặt thất bại: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Đã gỡ plugin. Steam đang khởi động lại.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Gỡ cài đặt thất bại: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Đã có bản cập nhật.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Bạn đang dùng phiên bản mới nhất.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Không tìm thấy bản cài đặt Steam.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Không thể kết nối GitHub để lấy bản phát hành mới nhất.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Bản phát hành {0} thiếu {1} hoặc {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Xác minh hash của {0} thất bại.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip không chứa public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Tính năng nổi bật</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Thêm nút “Add via LuaTools” vào các trang cửa hàng Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Tự động cập nhật</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Hoạt động dù có hay không có Millennium</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…hoặc kéo vào một liên kết SteamDB / cửa hàng Steam để thêm trò chơi đó.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Quản lý depot</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Giới thiệu</value></data>

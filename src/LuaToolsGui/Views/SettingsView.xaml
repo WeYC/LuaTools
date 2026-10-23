@@ -1,4 +1,4 @@
-﻿<UserControl
+<UserControl
     x:Class="LuaToolsGui.Views.SettingsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -268,7 +268,7 @@
                         <Border Margin="0,0,0,10" Padding="12" Background="#08FFFFFF" BorderBrush="#12FFFFFF" BorderThickness="1" CornerRadius="6"
                                 Visibility="{Binding ShowHubcapStats, Converter={StaticResource BoolToVis}}">
                             <StackPanel>
-                                <!-- Real ProgressBar (Fluent-styled, same as PluginView/ModeView/FixesView).
+                                <!-- Real ProgressBar (Fluent-styled, same as ModeView/FixesView).
                                      HubcapUsagePercent is 0.0–1.0, so Maximum="1"; ProgressBar clamps past it.
                                      Indeterminate (animated) until stats load, so the card is never blank. -->
                                 <ProgressBar

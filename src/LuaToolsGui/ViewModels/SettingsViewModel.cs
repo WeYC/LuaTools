@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -91,8 +91,8 @@ public partial class SettingsViewModel : ObservableObject
             using var key = Registry.CurrentUser.OpenSubKey(RunKeyPath, writable: true);
             if (key is null) return;
             if (value)
-                // --minimized: start silently in the tray on sign-in so it just serves the
-                // local backend (127.0.0.1:6767) for the Steam plugin without stealing focus.
+                // --minimized: start silently in the tray on sign-in so it stays out of the way
+                // without stealing focus.
                 key.SetValue(RunValueName, $"\"{Environment.ProcessPath}\" --minimized");
             else
                 key.DeleteValue(RunValueName, throwOnMissingValue: false);

@@ -93,8 +93,8 @@ public static class Program
                 catch { /* best effort */ }
 
                 // A --tray-locked relaunch is the loader firing on Steam-open. Poke the live instance to
-                // re-run its update flow (app + plugin), so an already-running app still updates when the
-                // user opens Steam. Gated to --tray-locked so manual/protocol relaunches never trigger it.
+                // re-run its update flow, so an already-running app still updates when the user opens
+                // Steam. Gated to --tray-locked so manual/protocol relaunches never trigger it.
                 try
                 {
                     if (EventWaitHandle.TryOpenExisting(RecheckUpdatesEventName, out var ru))

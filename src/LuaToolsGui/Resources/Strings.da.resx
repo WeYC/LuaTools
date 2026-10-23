@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Velkommen til LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua'er ombord</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>SENEST TILFØJET</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Pluginstatus</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Tilføjet for nylig</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Vis detaljer</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Kontrollerer Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Logget ind ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Anvend anbefalede indstillinger</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Tilstand: BetterSteamTools · FastFetch til</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Installer vores berømte plugin</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Tilføjer knappen "Add via LuaTools" til Steam-butikssider.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Ja tak</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Nej tak</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Kom i gang!</value></data>
@@ -375,48 +372,6 @@ Dette sletter .lua-filerne fra Steam\config\stplug-in.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Automatisk download fra den første tilgængelige kilde</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Ingen tilgængelige kilder fundet til dette spil</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· via {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>LuaTools-plugin</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>LuaTools Steam-pluginet! — Bruger nu LuaLoader i stedet for Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Status</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Opdatering tilgængelig</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Installeret version</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Nyeste version</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Indlæser (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium registreret — LuaTools kører ved siden af det. Installation deaktiverer Milleniums egen kopi af dette plugin, så kun LuaLoader indsætter.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader installeres i din Steam-mappe. Denne app fungerer som backend — hvis du lukker den fra proceslinjen, holder pluginet op med at fungere!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Installer</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Opdater</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Geninstaller</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Afinstaller</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Søg efter opdateringer</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Kontrollerer…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Installeret</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Ikke installeret</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Opdateret</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Forældet</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>ukendt</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>offline</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Kunne ikke nå GitHub for at søge efter opdateringer.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Et andet program bruger allerede port 8080 — plugin'ets browserbro fungerer måske ikke. Luk det, der bruger den port, og geninstallér eller genstart Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Dette lukker og genstarter Steam for at anvende indlæseren. Fortsæt?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Genstart Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Plugin</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Plugin installeret. Steam genstarter for at indlæse det.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Installation mislykkedes: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Plugin fjernet. Steam genstarter.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Afinstallation mislykkedes: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Der er en opdatering tilgængelig.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Du er opdateret.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Steam-installationen blev ikke fundet.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Kunne ikke nå GitHub for at hente den nyeste udgivelse.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Udgivelsen {0} mangler {1} eller {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Hash-verificering af {0} mislykkedes.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip indeholdt ikke public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Nævneværdige funktioner</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Tilføjer en “Add via LuaTools”-knap til Steam-butikssider</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Opdaterer sig selv automatisk</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Virker med eller uden Millennium</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…eller træk et SteamDB-/Steam-butikslink herind for at tilføje det spil.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Administrer depoter</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Om</value></data>

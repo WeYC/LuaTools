@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LuaToolsGui.Services;
@@ -8,8 +8,8 @@ namespace LuaToolsGui.ViewModels;
 
 /// <summary>
 /// The Downloads page. A thin projection over <see cref="DownloadQueue"/>: it holds no download state
-/// of its own, so the queue stays the single source of truth for every entry point (Add, Fixes, the
-/// store plugin and the protocol handler).
+/// of its own, so the queue stays the single source of truth for every entry point (Add, Fixes and the
+/// protocol handler).
 /// </summary>
 public partial class DownloadsViewModel : ObservableObject
 {

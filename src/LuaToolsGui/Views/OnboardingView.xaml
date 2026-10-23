@@ -128,44 +128,6 @@
                     </StackPanel>
                 </Grid>
 
-                <!-- Install plugin -->
-                <Grid Margin="0,22,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Margin="0,0,28,0" VerticalAlignment="Center">
-                        <TextBlock FontSize="14" FontWeight="SemiBold" Text="{x:Static res:Strings.Onboarding_Plugin_Title}" />
-                        <TextBlock Margin="0,2,0,0" FontSize="12" Foreground="#7c8593" Text="{x:Static res:Strings.Onboarding_Plugin_Detail}" TextWrapping="Wrap" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
-                        <ui:Button Command="{Binding SetInstallPluginCommand}" Content="{x:Static res:Strings.Onboarding_Yes}">
-                            <ui:Button.CommandParameter><sys:Boolean>True</sys:Boolean></ui:Button.CommandParameter>
-                            <ui:Button.Style>
-                                <Style BasedOn="{StaticResource ChoiceButton}" TargetType="ui:Button">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding InstallPlugin}" Value="True">
-                                            <Setter Property="Appearance" Value="Primary" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ui:Button.Style>
-                        </ui:Button>
-                        <ui:Button Command="{Binding SetInstallPluginCommand}" Content="{x:Static res:Strings.Onboarding_No}">
-                            <ui:Button.CommandParameter><sys:Boolean>False</sys:Boolean></ui:Button.CommandParameter>
-                            <ui:Button.Style>
-                                <Style BasedOn="{StaticResource ChoiceButton}" TargetType="ui:Button">
-                                    <Style.Triggers>
-                                        <DataTrigger Binding="{Binding InstallPlugin}" Value="False">
-                                            <Setter Property="Appearance" Value="Primary" />
-                                        </DataTrigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </ui:Button.Style>
-                        </ui:Button>
-                    </StackPanel>
-                </Grid>
-
                 <!-- Let's go! -->
                 <ui:Button
                     Margin="0,28,0,0"

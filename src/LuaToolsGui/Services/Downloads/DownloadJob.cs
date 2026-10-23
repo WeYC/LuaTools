@@ -1,4 +1,4 @@
-﻿namespace LuaToolsGui.Services.Downloads;
+namespace LuaToolsGui.Services.Downloads;
 
 /// <summary>What a queued download is for. Drives the row icon and the history label.</summary>
 public enum DownloadKind { Manifest, Dlc, DenuvoManifest, DenuvoFix, Depot, Tool }
@@ -36,9 +36,8 @@ public sealed record JobResult(bool Ok, string? Message, string? InstalledPath =
 /// <remarks>
 /// The queue is a pure scheduler. It knows nothing about Hubcap vs lua.tools vs signed R2 URLs, and
 /// nothing about <c>LuaInstaller</c> or <c>SteamService</c>; all of that lives in the delegates, which
-/// in practice are always built by <see cref="ManifestJobFactory"/>. That keeps the three formerly
-/// duplicated download+install implementations (the Add page, the plugin add service and the HTTP
-/// server) sharing exactly one code path.
+/// in practice are always built by <see cref="ManifestJobFactory"/>. That keeps the formerly duplicated
+/// download+install implementations (the Add page and the old HTTP server) sharing exactly one code path.
 ///
 /// Deliberate consequence of holding delegates: a job is NOT serializable, so nothing resumes across an
 /// app restart. Only the completed-history <see cref="DownloadHistoryRecord"/> persists.

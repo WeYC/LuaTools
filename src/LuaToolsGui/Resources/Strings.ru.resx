@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Добро пожаловать в LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua на борту</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>ПОСЛЕДНЕЕ ДОБАВЛЕНИЕ</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Статус плагина</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Недавно добавленные</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Подробности</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Проверка Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Выполнен вход ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Применить рекомендуемые настройки</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Режим: BetterSteamTools · FastFetch включён</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Установить наш знаменитый плагин</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Добавляет кнопку «Add via LuaTools» на страницы магазина Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Да, пожалуйста</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Нет, спасибо</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Поехали!</value></data>
@@ -375,48 +372,6 @@
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Автоматическая загрузка из первого доступного источника</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Для этой игры не найдено доступных источников</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· через {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Плагин LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Плагин LuaTools для Steam! — Теперь использует LuaLoader вместо Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Статус</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Доступно обновление</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Установленная версия</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Последняя версия</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Фронтенд</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Загрузчик (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Обнаружен Millennium — LuaTools работает рядом с ним. Установка отключает собственную копию этого плагина в Millennium, чтобы внедрял только LuaLoader.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader устанавливается в папку Steam. Это приложение работает как бэкенд — если закрыть его из трея, плагин перестанет работать!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Установить</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Обновить</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Переустановить</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Удалить</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Проверить обновления</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Проверка…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Установлено</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Не установлено</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Актуально</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Устарело</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>неизвестно</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>офлайн</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Не удалось подключиться к GitHub для проверки обновлений.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Порт 8080 уже используется другой программой — браузерный мост плагина может не работать. Закройте программу, использующую этот порт, и переустановите плагин или перезапустите Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Steam будет закрыт и перезапущен, чтобы применить загрузчик. Продолжить?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Перезапустить Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Плагин</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Плагин установлен. Steam перезапускается для его загрузки.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Ошибка установки: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Плагин удалён. Steam перезапускается.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Ошибка удаления: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Доступно обновление.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>У вас последняя версия.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Установка Steam не найдена.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Не удалось подключиться к GitHub для загрузки последнего выпуска.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>В выпуске {0} отсутствует {1} или {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Не удалось проверить хеш {0}.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip не содержит public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Ключевые возможности</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Добавляет кнопку «Add via LuaTools» на страницы магазина Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Автоматически обновляется</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Работает с Millennium и без него</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…или перетащите сюда ссылку SteamDB / магазина Steam, чтобы добавить эту игру.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Управление депо</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Об игре</value></data>

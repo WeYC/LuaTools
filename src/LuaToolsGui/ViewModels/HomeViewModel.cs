@@ -17,7 +17,6 @@ public partial class HomeViewModel : ObservableObject
 
     // Section-navigation hooks wired by App (each → MainWindow.NavigateToXxx). Fire the matching command
     // from the clickable dashboard cells.
-    public Action? NavigateToPlugin { get; set; }
     public Action? NavigateToManage { get; set; }
     public Action? NavigateToSettings { get; set; }
     public Action? NavigateToMode { get; set; }
@@ -28,25 +27,12 @@ public partial class HomeViewModel : ObservableObject
     private readonly SteamAppInfoCache _appInfo;
     private readonly CoverCache _covers;
     private readonly UnlockerService _unlocker;
-    private readonly PluginInstallerService _plugin;
-    private readonly ToastService _toast;
 
     /// <summary>Drag-and-drop installer shown on the page; refreshes the library after a drop.</summary>
     public DropInstallViewModel Drop { get; }
 
     // ── Library stats ───────────────────────────────────────────────
     [ObservableProperty] private int _gameCount;
-
-    // ── Store-page plugin status (at-a-glance on the dashboard) ─────
-    [ObservableProperty] private string _pluginStatusText = Resources.Strings.Plugin_Checking;
-    [ObservableProperty] private string _pluginStatusColor = "#9ca3af";
-    /// <summary>Not installed → show the tile's inline Install button.</summary>
-    [ObservableProperty] private bool _showPluginInstall;
-    /// <summary>Install in progress → disable the button (via <see cref="NotInstallingPlugin"/>).</summary>
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(NotInstallingPlugin))]
-    private bool _isInstallingPlugin;
-    public bool NotInstallingPlugin => !IsInstallingPlugin;
 
     // ── Recently added strip ────────────────────────────────────────
     [ObservableProperty]
@@ -71,7 +57,7 @@ public partial class HomeViewModel : ObservableObject
 
     public HomeViewModel(SteamService steam, AuthService auth,
         SteamAppListCache appList, SteamAppInfoCache appInfo, CoverCache covers, DropInstallViewModel drop,
-        UnlockerService unlocker, PluginInstallerService plugin, ToastService toast)
+        UnlockerService unlocker)
     {
         _steam = steam;
         _auth = auth;
@@ -79,11 +65,9 @@ public partial class HomeViewModel : ObservableObject
         _appInfo = appInfo;
         _covers = covers;
         _unlocker = unlocker;
-        _plugin = plugin;
-        _toast = toast;
         Drop = drop;
         _auth.AuthStateChanged += RefreshAccount;
-        // Library refresh on any install (drag-drop, plugin, Add page, Fixes) is driven by
+        // Library refresh on any install (drag-drop, Add page, Fixes) is driven by
         // LuaInstaller.Installed, wired in App → RefreshLibraryAsync.
     }
 
@@ -92,40 +76,9 @@ public partial class HomeViewModel : ObservableObject
     private void OpenGame(LuaTileViewModel tile) => NavigateToGame?.Invoke(tile.AppId);
 
     // Clickable dashboard cells → section navigation.
-    [RelayCommand] private void OpenPlugin() => NavigateToPlugin?.Invoke();
     [RelayCommand] private void OpenManage() => NavigateToManage?.Invoke();
     [RelayCommand] private void OpenSettings() => NavigateToSettings?.Invoke();
     [RelayCommand] private void OpenMode() => NavigateToMode?.Invoke();
-
-    /// <summary>Inline install of the store-page plugin from the Home tile (mirrors PluginViewModel.Install):
-    /// confirm the Steam restart, install, toast the outcome, then refresh the tile.</summary>
-    [RelayCommand]
-    private async Task InstallPlugin()
-    {
-        if (IsInstallingPlugin) return;
-        var confirm = System.Windows.MessageBox.Show(
-            Resources.Strings.Plugin_Confirm_RestartBody,
-            Resources.Strings.Plugin_Confirm_RestartCaption,
-            System.Windows.MessageBoxButton.OKCancel,
-            System.Windows.MessageBoxImage.Warning);
-        if (confirm != System.Windows.MessageBoxResult.OK) return;
-
-        IsInstallingPlugin = true;
-        PluginStatusText = Resources.Strings.Plugin_Checking;
-        PluginStatusColor = "#9ca3af";
-        try
-        {
-            var (ok, error) = await _plugin.InstallAsync(progress: null);
-            _toast.Show(Resources.Strings.Plugin_Toast_Title, ok
-                ? Resources.Strings.Plugin_Toast_Installed
-                : string.Format(Resources.Strings.Plugin_Toast_InstallFailed, error), error: !ok);
-        }
-        finally
-        {
-            IsInstallingPlugin = false;
-            await RefreshPluginStatusAsync();
-        }
-    }
 
     /// <summary>Called when the page is shown. Refresh everything.</summary>
     public async Task LoadAsync()
@@ -133,26 +86,7 @@ public partial class HomeViewModel : ObservableObject
         RefreshSteam();
         RefreshAccount();
         RefreshMode();
-        _ = RefreshPluginStatusAsync(); // fire-and-forget: may hit GitHub, must not delay the page
         await RefreshLibraryAsync();
-    }
-
-    /// <summary>Populate the "Plugin Status" dashboard tile from the same source the Plugin page uses.</summary>
-    private async Task RefreshPluginStatusAsync()
-    {
-        try
-        {
-            var st = await _plugin.GetStatusAsync(force: false);
-            bool installed = st.FrontendInstalled && st.DllInstalled;
-            ShowPluginInstall = !installed;
-            (PluginStatusText, PluginStatusColor) =
-                !installed         ? (Resources.Strings.Plugin_Status_NotInstalled,   "#9ca3af")
-                : st.UpdateAvailable ? (Resources.Strings.Plugin_Badge_UpdateAvailable, "#fbbf24")
-                : (st.InstalledTag is { } tag
-                      ? $"{Resources.Strings.Plugin_Status_Installed} · {tag}"
-                      : Resources.Strings.Plugin_Status_Installed, "#34d399");
-        }
-        catch { /* leave the prior value (e.g. "Checking…") on any failure */ }
     }
 
     private void RefreshMode() =>

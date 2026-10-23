@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>LuaToolsへようこそ</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>登録済みのLua</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>最後に追加</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>プラグインの状態</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>最近追加</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>詳細を表示</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Steamを確認中…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>サインイン済み ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>推奨設定を適用</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>モード: BetterSteamTools · FastFetch オン</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>人気のプラグインをインストール</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Steam ストアページに「Add via LuaTools」ボタンを追加します。</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>はい、お願いします</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>いいえ、結構です</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>始めましょう！</value></data>
@@ -375,48 +372,6 @@ Steam\config\stplug-in から .lua ファイルを削除します。</value></da
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>最初の利用可能なソースから自動ダウンロード</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>このゲームで利用可能なソースが見つかりません</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· ソース：{0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>LuaTools プラグイン</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>LuaTools の Steam プラグイン！ — Shittenium に代わり LuaLoader を使用</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>ステータス</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>更新があります</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>インストール済みバージョン</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>最新バージョン</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>フロントエンド</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>ローダー (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium を検出しました。LuaTools はそれと並行して動作します。インストールすると Millennium 側のこのプラグインのコピーが無効化され、LuaLoader のみが注入します。</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader は Steam フォルダーにインストールされます。このアプリはバックエンドとして動作します。トレイから終了するとプラグインは機能しなくなります！</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>インストール</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>更新</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>再インストール</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>アンインストール</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>更新を確認</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>確認中…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>インストール済み</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>未インストール</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>最新</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>古い</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>不明</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>オフライン</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>更新の確認のため GitHub に接続できませんでした。</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>ポート8080はすでに他のプログラムが使用しています — プラグインのブラウザブリッジが動作しない可能性があります。そのポートを使用しているものを閉じてから、再インストールするか Steam を再起動してください。</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>ローダーを適用するため Steam を終了して再起動します。続行しますか？</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Steam を再起動</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>プラグイン</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>プラグインをインストールしました。読み込むため Steam を再起動しています。</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>インストールに失敗しました: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>プラグインを削除しました。Steam を再起動しています。</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>アンインストールに失敗しました: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>更新があります。</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>最新の状態です。</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Steam のインストールが見つかりません。</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>最新リリースを取得するため GitHub に接続できませんでした。</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>リリース {0} に {1} または {2} がありません。</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>{0} のハッシュ検証に失敗しました。</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip に public/luatools.js が含まれていませんでした。</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>主な機能</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Steam ストアページに「Add via LuaTools」ボタンを追加します</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>自動的に最新の状態を保ちます</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Millennium の有無にかかわらず動作します</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…SteamDB / Steam ストアのリンクをドラッグしても、そのゲームを追加できます。</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>デポを管理</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>概要</value></data>

@@ -1,0 +1,107 @@
+name: Release
+
+# Builds the WPF app and publishes a Velopack release to GitHub Releases, producing the same
+# asset set as upstream (LuaTools-win-Setup.exe, LuaTools-win-Portable.zip, LuaTools-<ver>-full.nupkg,
+# releases.win.json, assets.win.json, RELEASES) so the in-app auto-updater works unchanged.
+#
+# Trigger: push a tag like v1.1.3, or run the workflow manually (version is read from the csproj).
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve version
+        id: version
+        shell: bash
+        run: |
+          if [ "${{ github.ref_type }}" = "tag" ]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            # Single source of truth: the <Version> tag in the app project.
+            VERSION="$(grep -oE '<Version>[^<]+' src/LuaToolsGui/LuaToolsGui.csproj | head -1 | sed 's/<Version>//')"
+          fi
+          if [ -z "$VERSION" ]; then
+            echo "::error::Could not resolve a version"
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Building version $VERSION"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      # Framework-dependent publish (no bundled runtime), matching the ~10 MB release builds.
+      # The .NET 10 Desktop Runtime is instead installed by the Velopack installer, see --framework below.
+      - name: Publish
+        run: >
+          dotnet publish src/LuaToolsGui/LuaToolsGui.csproj
+          -c Release
+          -r win-x64
+          --self-contained false
+          -p:Version=${{ steps.version.outputs.version }}
+          -o publish
+
+      # Pinned to the app's Velopack version (PackageReference Velopack 1.2.0) so pack/upload match
+      # the runtime the app itself links against.
+      - name: Install Velopack CLI
+        run: dotnet tool install -g vpk --version 1.2.0
+
+      # Fetch the previous release so vpk can emit delta packages and carry the channel forward.
+      # Harmless on the very first release, where there is nothing to download.
+      - name: Download previous releases
+        continue-on-error: true
+        run: >
+          vpk download github
+          --repoUrl https://github.com/${{ github.repository }}
+          --token ${{ secrets.GITHUB_TOKEN }}
+          --channel win
+          --outputDir Releases
+
+      # --framework net10.0-x64-desktop: the setup installs the .NET 10 Desktop Runtime when missing.
+      # --channel win keeps the asset naming identical to upstream (LuaTools-win-*).
+      - name: Pack
+        run: >
+          vpk pack
+          --packId LuaTools
+          --packVersion ${{ steps.version.outputs.version }}
+          --packDir publish
+          --mainExe LuaTools.exe
+          --packTitle LuaTools
+          --packAuthors LuaTools
+          --icon src/LuaToolsGui/icon.ico
+          --channel win
+          --runtime win-x64
+          --framework net10.0-x64-desktop
+          --outputDir Releases
+
+      - name: Upload to GitHub Releases
+        run: >
+          vpk upload github
+          --repoUrl https://github.com/${{ github.repository }}
+          --token ${{ secrets.GITHUB_TOKEN }}
+          --channel win
+          --outputDir Releases
+          --publish
+          --merge
+          --releaseName "v${{ steps.version.outputs.version }}"
+          --tag v${{ steps.version.outputs.version }}
+
+      - name: List release assets
+        run: Get-ChildItem Releases | Select-Object Name, Length | Format-Table -AutoSize

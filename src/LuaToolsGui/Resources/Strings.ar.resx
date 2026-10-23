@@ -140,7 +140,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>مرحبًا بك في LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>ملفات Lua المتوفرة</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>آخر ما أُضيف</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>حالة الإضافة</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>أُضيفت مؤخرًا</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>عرض التفاصيل</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>جارٍ التحقق من Steam…</value></data>
@@ -187,8 +186,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>تم تسجيل الدخول ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>تطبيق الإعدادات الموصى بها</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>الوضع: BetterSteamTools · تشغيل FastFetch</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>تثبيت إضافتنا الشهيرة</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>يضيف زر "Add via LuaTools" إلى صفحات متجر Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>نعم من فضلك</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>لا شكرًا</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>هيا بنا!</value></data>
@@ -401,48 +398,6 @@
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>التنزيل التلقائي من أول مصدر متاح</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>لم يتم العثور على مصادر متاحة لهذه اللعبة</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· عبر {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>إضافة LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>إضافة LuaTools لمتجر Steam! — تستخدم الآن LuaLoader بدلًا من Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>الحالة</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>تحديث متاح</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>الإصدار المثبَّت</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>أحدث إصدار</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>الواجهة</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>المُحمِّل (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>تم اكتشاف Millennium — يعمل LuaTools جنبًا إلى جنب معه. سيؤدي التثبيت إلى تعطيل نسخة Millennium من هذه الإضافة حتى يقوم LuaLoader وحده بالحقن.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>يُثبَّت LuaLoader في مجلد Steam. يعمل هذا التطبيق كخلفية — إذا أغلقته من شريط النظام، فلن تعمل الإضافة بعد الآن!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>تثبيت</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>تحديث</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>إعادة التثبيت</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>إلغاء التثبيت</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>التحقق من التحديثات</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>جارٍ التحقق…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>مثبَّت</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>غير مثبَّت</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>محدَّث</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>قديم</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>غير معروف</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>غير متصل</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>تعذّر الوصول إلى GitHub للتحقق من التحديثات.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>برنامج آخر يستخدم المنفذ 8080 بالفعل — قد لا يعمل جسر المتصفح الخاص بالإضافة. أغلق أي برنامج يستخدم هذا المنفذ ثم أعد التثبيت أو أعد تشغيل Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>سيؤدي هذا إلى إغلاق Steam وإعادة تشغيله لتطبيق المُحمِّل. هل تريد المتابعة؟</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>إعادة تشغيل Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>الإضافة</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>تم تثبيت الإضافة. تتم إعادة تشغيل Steam لتحميلها.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>فشل التثبيت: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>تمت إزالة الإضافة. تتم إعادة تشغيل Steam.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>فشل إلغاء التثبيت: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>يتوفّر تحديث.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>أنت على أحدث إصدار.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>لم يتم العثور على تثبيت Steam.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>تعذّر الوصول إلى GitHub لجلب أحدث إصدار.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>الإصدار {0} تنقصه {1} أو {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>فشل التحقق من تجزئة {0}.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>لا يحتوي plugin.zip على public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>الميزات البارزة</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>يضيف زر «Add via LuaTools» إلى صفحات متجر Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>يُحدِّث نفسه تلقائيًا</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>يعمل مع Millennium أو بدونه</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…أو اسحب رابط SteamDB / متجر Steam لإضافة تلك اللعبة.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>إدارة المستودعات</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>حول</value></data>

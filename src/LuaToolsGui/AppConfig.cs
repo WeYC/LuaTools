@@ -68,14 +68,14 @@ public static class AppConfig
     //
     // This is a RE-PACK we host ourselves, NOT the upstream SteamAutoCracks/DepotDownloaderMod repo, for two
     // reasons: upstream ships its assets as `Release.rar` (System.IO.Compression cannot read RAR), and its
-    // build is framework-dependent net9.0 while this app is net8.0-windows, so users without the .NET 9
-    // runtime couldn't run it. Note that adding a RAR reader would fix only the FIRST of those.
+    // build is framework-dependent net9.0 while this app targets net10.0-windows, so users without the
+    // .NET 9 runtime couldn't run it. Note that adding a RAR reader would fix only the FIRST of those.
     //
     // The re-pack is produced automatically by the `repack.yml` workflow in that repo: on each upstream
     // release it rebuilds their source at that tag as a SELF-CONTAINED win-x64 publish and uploads a FLAT
     // zip. Both properties are load-bearing for DepotDownloaderService.EnsureToolAsync, which takes the
     // first `.zip` asset, extracts it straight into ToolDir, and then expects DepotDownloaderMod.exe at the
-    // archive ROOT (unlike PluginInstallerService, it has no single-top-level-folder hoisting).
+    // archive ROOT (unlike other tool installers, it has no single-top-level-folder hoisting).
     public const string DepotDownloaderRepo = "mendy-tools/DepotDownloaderMod";
     public const string ManifestBackendUrl = "http://167.235.229.108";
     public const string ManifestBackendUserAgent = "secretgoonpoon";
@@ -93,27 +93,20 @@ public static class AppConfig
     /// Public GitHub repos hosting Velopack release assets, in priority order. The auto-updater reads its
     /// feed from the FIRST repo; if that whole repo is unreachable or gone (e.g. banned / DMCA'd / account
     /// removed. A failure the GitHub proxy mirrors can't fix, since they'd still point at a dead repo), it
-    /// falls through to the next. Mirror repos are populated MANUALLY (re-upload the same Velopack assets to
-    /// the backup only if the primary goes down). Each is still individually proxied for blocked regions.
-    /// TODO: set the real primary repo before the first `vpk upload`; add a backup repo URL when one exists.
+    /// falls through to the next. Each is still individually proxied for blocked regions.
+    /// <para>
+    /// This is the fork's OWN repository: the release workflow (.github/workflows/release.yml) publishes
+    /// here. Upstream's repos are deliberately NOT listed as fallbacks. Falling back to them would hand a
+    /// fork install an upstream build, silently replacing this app with someone else's release line.
+    /// </para>
     /// </summary>
     public static readonly string[] GithubReleasesRepos =
     [
-        "https://github.com/madoiscool/LuaTools",   // primary
-        "https://github.com/mendy-tools/LuaTools",  // backup. Create this repo + re-upload the Velopack
-                                                    // assets ONLY if the primary goes down (404s harmlessly
-                                                    // until then; UpdateService just falls through past it).
+        "https://github.com/WeYC/LuaTools",
     ];
 
     /// <summary>The primary releases repo (first in <see cref="GithubReleasesRepos"/>).</summary>
     public static string GithubReleasesRepo => GithubReleasesRepos[0];
-
-    // ── Plugin releases (the store-page plugin manager fetches these) ──────────────
-    // Separate from the app's own Velopack self-update repo above. Each release of this repo carries
-    // `plugin.zip` (the frontend) + `winmm.dll` (the loader); the tag is the version (e.g. "v1.2").
-    // Fetched + verified (by asset sha256 digest) through GithubProxy like everything else.
-    public const string PluginReleasesOwner = "madoiscool";
-    public const string PluginReleasesRepo = "LTSP";
 
     // ── GitHub proxy mirrors (for blocked/throttled regions, e.g. China) ──────────────
     // github.com / api.github.com are often unreachable in some countries. Any GitHub request is tried
@@ -122,7 +115,7 @@ public static class AppConfig
     // (an API mirror 400s a download; a download mirror 403s the API):
     //   • API metadata (api.github.com): ONLY our self-hosted lua.tools/gh proxy can serve it. Server-side
     //     PAT (60→5000/hr) + cache. No PUBLIC proxy serves the REST API (they all 403 it), so there's no
-    //     public backup here. Fixes the plugin release-metadata lookup in China / under rate-limit. 404s
+    //     public backup here. Fixes the release-metadata lookups in China / under rate-limit. 404s
     //     harmlessly until the /api/gh route is deployed, then lights up automatically.
     //   • Downloads (github.com releases / raw / objects): the public download proxies. lua.tools/gh is
     //     API-only (its route 400s downloads) so it is deliberately NOT in this list.

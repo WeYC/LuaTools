@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -223,7 +223,7 @@ public partial class DepotDownloaderService(
             await gh.DownloadAsync(asset.DownloadUrl, zipPath, sink, ct);
 
             // Verify before extracting over a working install: this is an executable we then run, and
-            // both UnlockerService and PluginInstallerService check the same way.
+            // UnlockerService checks the same way.
             if (!AssetHash.Matches(zipPath, asset.Digest))
             {
                 log.LogDebug("DepotDownloader asset digest mismatch; keeping the existing tool");

@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Selamat datang di LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua yang ada</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>TERAKHIR DITAMBAHKAN</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Status plugin</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Baru ditambahkan</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Lihat detail</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Memeriksa Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Sudah masuk ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Terapkan pengaturan yang disarankan</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Mode: BetterSteamTools · FastFetch aktif</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Pasang plugin terkenal kami</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Menambahkan tombol "Add via LuaTools" ke halaman toko Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Ya, silakan</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Tidak, terima kasih</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Ayo mulai!</value></data>
@@ -375,48 +372,6 @@ Ini menghapus berkas .lua dari Steam\config\stplug-in.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Unduh otomatis dari sumber pertama yang tersedia</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Tidak ada sumber tersedia yang ditemukan untuk game ini</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· melalui {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Plugin LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Plugin LuaTools untuk Steam! — Kini memakai LuaLoader alih-alih Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Status</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Pembaruan tersedia</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Versi terpasang</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Versi terbaru</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Pemuat (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium terdeteksi — LuaTools berjalan berdampingan dengannya. Pemasangan menonaktifkan salinan plugin ini milik Millennium sehingga hanya LuaLoader yang menyuntikkan.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader dipasang ke folder Steam Anda. Aplikasi ini berfungsi sebagai backend — jika Anda menutupnya dari tray, plugin tidak akan berfungsi lagi!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Pasang</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Perbarui</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Pasang ulang</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Copot pemasangan</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Periksa pembaruan</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Memeriksa…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Terpasang</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Belum terpasang</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Terbaru</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Ketinggalan zaman</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>tidak diketahui</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>luring</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Tidak dapat menghubungi GitHub untuk memeriksa pembaruan.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Program lain sudah menggunakan port 8080 — jembatan browser plugin mungkin tidak berfungsi. Tutup apa pun yang menggunakan port tersebut, lalu instal ulang atau mulai ulang Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Ini akan menutup dan memulai ulang Steam untuk menerapkan pemuat. Lanjutkan?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Mulai ulang Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Plugin</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Plugin terpasang. Steam sedang dimulai ulang untuk memuatnya.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Pemasangan gagal: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Plugin dihapus. Steam sedang dimulai ulang.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Pencopotan gagal: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Pembaruan tersedia.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Anda sudah menggunakan versi terbaru.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Pemasangan Steam tidak ditemukan.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Tidak dapat menghubungi GitHub untuk mengambil rilis terbaru.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Rilis {0} tidak memiliki {1} atau {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Verifikasi hash {0} gagal.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip tidak berisi public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Fitur penting</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Menambahkan tombol “Add via LuaTools” ke halaman toko Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Memperbarui diri secara otomatis</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Berfungsi dengan atau tanpa Millennium</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…atau seret tautan SteamDB / toko Steam untuk menambahkan game itu.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Kelola depot</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Tentang</value></data>

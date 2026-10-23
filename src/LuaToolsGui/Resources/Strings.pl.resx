@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Witamy w LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua na pokładzie</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>OSTATNIO DODANE</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Stan wtyczki</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Ostatnio dodane</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Zobacz szczegóły</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Sprawdzanie Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Zalogowano ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Zastosuj zalecane ustawienia</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Tryb: BetterSteamTools · FastFetch włączony</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Zainstaluj naszą słynną wtyczkę</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Dodaje przycisk „Add via LuaTools” do stron sklepu Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Tak, poproszę</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Nie, dziękuję</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Zaczynajmy!</value></data>
@@ -375,48 +372,6 @@ Spowoduje to usunięcie plików .lua z Steam\config\stplug-in.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Automatyczne pobieranie z pierwszego dostępnego źródła</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Nie znaleziono dostępnych źródeł dla tej gry</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· przez {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Wtyczka LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Wtyczka LuaTools do Steam! — Teraz używa LuaLoader zamiast Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Stan</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Dostępna aktualizacja</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Zainstalowana wersja</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Najnowsza wersja</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Loader (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Wykryto Millennium — LuaTools działa obok niego. Instalacja wyłącza kopię tej wtyczki należącą do Millennium, aby wstrzykiwał tylko LuaLoader.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader instaluje się w folderze Steam. Ta aplikacja działa jako backend — jeśli zamkniesz ją z zasobnika, wtyczka przestanie działać!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Zainstaluj</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Aktualizuj</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Zainstaluj ponownie</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Odinstaluj</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Sprawdź aktualizacje</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Sprawdzanie…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Zainstalowano</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Nie zainstalowano</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Aktualne</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Nieaktualne</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>nieznana</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>offline</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Nie można połączyć się z GitHubem, aby sprawdzić aktualizacje.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Inny program już korzysta z portu 8080 — most przeglądarki wtyczki może nie działać. Zamknij to, co używa tego portu, i zainstaluj ponownie lub uruchom ponownie Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Spowoduje to zamknięcie i ponowne uruchomienie Steam w celu zastosowania loadera. Kontynuować?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Uruchom ponownie Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Wtyczka</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Wtyczka zainstalowana. Steam jest uruchamiany ponownie, aby ją wczytać.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Instalacja nie powiodła się: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Wtyczka usunięta. Steam jest uruchamiany ponownie.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Odinstalowanie nie powiodło się: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Dostępna jest aktualizacja.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Masz najnowszą wersję.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Nie znaleziono instalacji Steam.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Nie można połączyć się z GitHubem, aby pobrać najnowsze wydanie.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>W wydaniu {0} brakuje {1} lub {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Weryfikacja skrótu {0} nie powiodła się.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip nie zawierał public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Ważne funkcje</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Dodaje przycisk „Add via LuaTools” na stronach sklepu Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Automatycznie się aktualizuje</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Działa z Millennium lub bez niego</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…albo przeciągnij tu link do SteamDB / sklepu Steam, aby dodać tę grę.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Zarządzaj depotami</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Informacje</value></data>

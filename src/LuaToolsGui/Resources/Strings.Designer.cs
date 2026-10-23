@@ -108,7 +108,6 @@ public static class Strings
     public static string Home_Welcome => Get(nameof(Home_Welcome));
     public static string Home_LuasOnBoard => Get(nameof(Home_LuasOnBoard));
     public static string Home_LastAdded => Get(nameof(Home_LastAdded));
-    public static string Home_PluginStatus => Get(nameof(Home_PluginStatus));
     public static string Home_RecentlyAdded => Get(nameof(Home_RecentlyAdded));
     public static string Home_ViewDetails => Get(nameof(Home_ViewDetails));
     public static string Home_CheckingSteam => Get(nameof(Home_CheckingSteam));
@@ -153,8 +152,6 @@ public static class Strings
     public static string Onboarding_SignedIn => Get(nameof(Onboarding_SignedIn));
     public static string Onboarding_Recommended_Title => Get(nameof(Onboarding_Recommended_Title));
     public static string Onboarding_Recommended_Detail => Get(nameof(Onboarding_Recommended_Detail));
-    public static string Onboarding_Plugin_Title => Get(nameof(Onboarding_Plugin_Title));
-    public static string Onboarding_Plugin_Detail => Get(nameof(Onboarding_Plugin_Detail));
     public static string Onboarding_Yes => Get(nameof(Onboarding_Yes));
     public static string Onboarding_No => Get(nameof(Onboarding_No));
     public static string Onboarding_Go => Get(nameof(Onboarding_Go));
@@ -370,48 +367,6 @@ public static class Strings
     public static string Confirm_Removing => Get(nameof(Confirm_Removing));
     public static string Confirm_Skip => Get(nameof(Confirm_Skip));
     public static string Confirm_Replace => Get(nameof(Confirm_Replace));
-        public static string Plugin_Title => Get(nameof(Plugin_Title));
-        public static string Plugin_Subtitle => Get(nameof(Plugin_Subtitle));
-        public static string Plugin_CardTitle => Get(nameof(Plugin_CardTitle));
-        public static string Plugin_Badge_UpdateAvailable => Get(nameof(Plugin_Badge_UpdateAvailable));
-        public static string Plugin_Row_InstalledVersion => Get(nameof(Plugin_Row_InstalledVersion));
-        public static string Plugin_Row_LatestVersion => Get(nameof(Plugin_Row_LatestVersion));
-        public static string Plugin_Row_Frontend => Get(nameof(Plugin_Row_Frontend));
-        public static string Plugin_Row_Loader => Get(nameof(Plugin_Row_Loader));
-        public static string Plugin_Millennium_Coexisting => Get(nameof(Plugin_Millennium_Coexisting));
-        public static string Plugin_Footer => Get(nameof(Plugin_Footer));
-        public static string Plugin_About_Header => Get(nameof(Plugin_About_Header));
-        public static string Plugin_Feature_StoreButton => Get(nameof(Plugin_Feature_StoreButton));
-        public static string Plugin_Feature_AutoUpdate => Get(nameof(Plugin_Feature_AutoUpdate));
-        public static string Plugin_Feature_Millennium => Get(nameof(Plugin_Feature_Millennium));
-        public static string Plugin_Btn_Install => Get(nameof(Plugin_Btn_Install));
-        public static string Plugin_Btn_Update => Get(nameof(Plugin_Btn_Update));
-        public static string Plugin_Btn_Reinstall => Get(nameof(Plugin_Btn_Reinstall));
-        public static string Plugin_Btn_Uninstall => Get(nameof(Plugin_Btn_Uninstall));
-        public static string Plugin_Btn_CheckForUpdates => Get(nameof(Plugin_Btn_CheckForUpdates));
-        public static string Plugin_Checking => Get(nameof(Plugin_Checking));
-        public static string Plugin_Status_Installed => Get(nameof(Plugin_Status_Installed));
-        public static string Plugin_Status_NotInstalled => Get(nameof(Plugin_Status_NotInstalled));
-        public static string Plugin_Status_UpToDate => Get(nameof(Plugin_Status_UpToDate));
-        public static string Plugin_Status_OutOfDate => Get(nameof(Plugin_Status_OutOfDate));
-        public static string Plugin_Version_Unknown => Get(nameof(Plugin_Version_Unknown));
-        public static string Plugin_Version_Offline => Get(nameof(Plugin_Version_Offline));
-        public static string Plugin_Status_OfflineCheck => Get(nameof(Plugin_Status_OfflineCheck));
-        public static string Plugin_Status_Port8080Busy => Get(nameof(Plugin_Status_Port8080Busy));
-        public static string Plugin_Confirm_RestartBody => Get(nameof(Plugin_Confirm_RestartBody));
-        public static string Plugin_Confirm_RestartCaption => Get(nameof(Plugin_Confirm_RestartCaption));
-        public static string Plugin_Toast_Title => Get(nameof(Plugin_Toast_Title));
-        public static string Plugin_Toast_Installed => Get(nameof(Plugin_Toast_Installed));
-        public static string Plugin_Toast_InstallFailed => Get(nameof(Plugin_Toast_InstallFailed));
-        public static string Plugin_Toast_Removed => Get(nameof(Plugin_Toast_Removed));
-        public static string Plugin_Toast_UninstallFailed => Get(nameof(Plugin_Toast_UninstallFailed));
-        public static string Plugin_Toast_UpdateAvailable => Get(nameof(Plugin_Toast_UpdateAvailable));
-        public static string Plugin_Toast_UpToDate => Get(nameof(Plugin_Toast_UpToDate));
-        public static string Plugin_Err_SteamNotFound => Get(nameof(Plugin_Err_SteamNotFound));
-        public static string Plugin_Err_GithubUnreachable => Get(nameof(Plugin_Err_GithubUnreachable));
-        public static string Plugin_Err_MissingAssets => Get(nameof(Plugin_Err_MissingAssets));
-        public static string Plugin_Err_VerifyFailed => Get(nameof(Plugin_Err_VerifyFailed));
-        public static string Plugin_Err_NoLuatoolsJs => Get(nameof(Plugin_Err_NoLuatoolsJs));
 
     // ── Builds page ──
     // NOT YET TRANSLATED: English-only for now (Get falls back to the English resx for any culture

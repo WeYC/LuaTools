@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -227,46 +227,6 @@ public partial class DownloadViewModel : ObservableObject
     // The most recent item this view model queued. ProtocolInstall awaits it so the silent-install
     // callback reflects the real outcome rather than "the download started".
     private DownloadItem? _lastEnqueued;
-
-    // ── Steam-plugin headless add (reflected over HTTP; no window) ────
-    /// <summary>Headless add driven by the Steam store plugin. Seeds the appid and runs the SAME
-    /// FetchAsync pipeline the app UI uses (dynamic sources + Hubcap synth + key-gating + usage +
-    /// FastFetch auto-download). The plugin polls state via the HTTP server and, when FastFetch is
-    /// off, picks a source with <see cref="DownloadSourceByNameAsync"/>. Unlike ProtocolInstall this
-    /// does NOT force FastFetch. It respects the user's setting so the plugin popup matches the app.</summary>
-    public async Task StartPluginAddAsync(long appId)
-    {
-        _silentInstall = true; // headless: no surfaced window to confirm an overwrite on
-        _suppressSearch = true;
-        SearchText = appId.ToString();
-        _suppressSearch = false;
-        ResetResults();
-        IsResultsOpen = false;
-        InstallStatus = null;
-        Error = null;
-        try
-        {
-            Details = await _api.GetDetailsAsync(appId.ToString());
-            OnPropertyChanged(nameof(GenresText));
-        }
-        catch
-        {
-            Error = Resources.Strings.Add_Err_Generic;
-            return;
-        }
-        if (HasDetails) await FetchCommand.ExecuteAsync(null);
-    }
-
-    /// <summary>Plugin picked a source by name (FastFetch-off path). Download+install it headlessly.</summary>
-    public Task DownloadSourceByNameAsync(string name)
-    {
-        _silentInstall = true;
-        var row = Sources.FirstOrDefault(s =>
-            string.Equals(s.Name, name, StringComparison.OrdinalIgnoreCase)
-            || string.Equals(s.DisplayName, name, StringComparison.OrdinalIgnoreCase));
-        return row is null ? Task.CompletedTask : DownloadFromSourceAsync(row);
-    }
-
 
     // ── Install result banner ───────────────────────────────────────
     [ObservableProperty]

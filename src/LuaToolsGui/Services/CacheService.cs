@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Text.Json;
 
 namespace LuaToolsGui.Services;
@@ -26,8 +26,8 @@ public class CacheData
     public long HardwareAppIdsFetchedAtMs { get; set; } // Unix-ms of last successful fetch; 0 = never
 
     // ── Loaded-apps notification list (dismissable) ──────────────────
-    // Appids the plugin surfaces as "recently loaded" on the store page; cleared on dismiss.
-    // Replaces the old Lua backend's loadedappids.txt.
+    // Appids recorded as "recently installed"; cleared on dismiss. Replaces the old Lua backend's
+    // loadedappids.txt.
     public List<long> LoadedAppIds { get; set; } = [];
 
     // ── First-run onboarding ─────────────────────────────────────────

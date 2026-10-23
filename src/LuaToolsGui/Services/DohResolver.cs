@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -54,9 +54,9 @@ public class DohResolver
     /// Names that must never go to DoH: it either cannot answer them or does not need to.
     /// </summary>
     /// <remarks>
-    /// IP literals need no resolution at all. Loopback and single-label names are the local HTTP server,
-    /// the plugin port probe and the OAuth callback — a public resolver has no answer for those, and
-    /// asking would leak the name and add a round-trip to every local call.
+    /// IP literals need no resolution at all. Loopback and single-label names cover the OAuth callback and
+    /// other local endpoints — a public resolver has no answer for those, and asking would leak the name
+    /// and add a round-trip to every local call.
     /// </remarks>
     public static bool ShouldBypass(string? host)
     {

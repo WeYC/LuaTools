@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
@@ -10,7 +10,7 @@ namespace LuaToolsGui.Services.Downloads;
 
 /// <summary>
 /// The app's single download scheduler: manifests and Denuvo fixes from every entry point (the Add
-/// page, the Fixes page, the Steam store plugin and the protocol handler) run through this one queue.
+/// page, the Fixes page and the protocol handler) run through this one queue.
 /// </summary>
 /// <remarks>
 /// <para><b>Threading.</b> All queue state — <see cref="Items"/>, <see cref="History"/>, every

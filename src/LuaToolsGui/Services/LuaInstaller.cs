@@ -26,8 +26,8 @@ public partial class LuaInstaller(SteamService steam, SettingsService settings, 
 {
     private bool AutoUpdate => settings.AutoUpdateApps;
 
-    /// <summary>Raised (with the appid) whenever a lua is successfully installed, via any path (plugin,
-    /// drag-drop, Add page, Fixes). The UI subscribes to refresh the library live. May fire on a
+    /// <summary>Raised (with the appid) whenever a lua is successfully installed, via any path (Add
+    /// page, drag-drop, Fixes, protocol link). The UI subscribes to refresh the library live. May fire on a
     /// background thread, so handlers must marshal to the UI thread.</summary>
     public event Action<long>? Installed;
 
@@ -77,10 +77,10 @@ public partial class LuaInstaller(SteamService steam, SettingsService settings, 
         catch { /* the vault is a convenience. A hiccup here must never fail an install */ }
     }
 
-    /// <summary>Record a just-installed appid in the "recently added" list (cache.json's LoadedAppIds), so
-    /// the store-page plugin can surface it in the "games added since last Steam restart" popup. Best-effort.
-    /// A caching hiccup must never fail an install. Also fires <see cref="Installed"/> so the app's own
-    /// Home/Manage library views refresh (this is the single chokepoint every lua install passes through).</summary>
+    /// <summary>Record a just-installed appid in the "recently added" list (cache.json's LoadedAppIds).
+    /// Best-effort: a caching hiccup must never fail an install. Also fires <see cref="Installed"/> so the
+    /// app's own Home/Manage library views refresh (this is the single chokepoint every lua install passes
+    /// through).</summary>
     private void RecordLoaded(long appId)
     {
         try { cache.SaveLoadedAppIds(cache.GetLoadedAppIds().Append(appId)); }

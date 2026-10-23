@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Bun venit la LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua la bord</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>ULTIMUL ADĂUGAT</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Starea pluginului</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Adăugate recent</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Vezi detalii</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Se verifică Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Conectat ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Aplică setările recomandate</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Mod: BetterSteamTools · FastFetch activat</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Instalează faimosul nostru plugin</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Adaugă butonul „Add via LuaTools” pe paginile din magazinul Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Da, te rog</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Nu, mulțumesc</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Să începem!</value></data>
@@ -375,48 +372,6 @@ Aceasta șterge fișierele .lua din Steam\config\stplug-in.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Descărcare automată de la prima sursă disponibilă</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Nu s-au găsit surse disponibile pentru acest joc</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· prin {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Plugin LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Pluginul LuaTools pentru Steam! — Acum folosește LuaLoader în loc de Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Stare</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Actualizare disponibilă</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Versiune instalată</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Cea mai recentă versiune</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Încărcător (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium detectat — LuaTools rulează alături de el. Instalarea dezactivează copia proprie a acestui plugin din Millennium, astfel încât doar LuaLoader să injecteze.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader se instalează în folderul tău Steam. Această aplicație funcționează ca backend — dacă o închizi din bara de sistem, pluginul nu va mai funcționa!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Instalează</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Actualizează</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Reinstalează</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Dezinstalează</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Verifică actualizările</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Se verifică…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Instalat</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Neinstalat</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>La zi</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Învechit</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>necunoscută</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>offline</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Nu s-a putut accesa GitHub pentru a verifica actualizările.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Un alt program folosește deja portul 8080 — puntea de browser a pluginului ar putea să nu funcționeze. Închide orice folosește acel port și reinstalează sau repornește Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Aceasta va închide și reporni Steam pentru a aplica încărcătorul. Continuați?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Repornește Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Plugin</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Plugin instalat. Steam repornește pentru a-l încărca.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Instalarea a eșuat: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Plugin eliminat. Steam repornește.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Dezinstalarea a eșuat: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Este disponibilă o actualizare.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Ești la zi.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Instalarea Steam nu a fost găsită.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Nu s-a putut accesa GitHub pentru a descărca cea mai recentă versiune.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Versiunii {0} îi lipsește {1} sau {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Verificarea hash a {0} a eșuat.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip nu conținea public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Funcții notabile</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Adaugă un buton „Add via LuaTools” pe paginile magazinului Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Se actualizează automat</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Funcționează cu sau fără Millennium</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…sau trage un link SteamDB / din magazinul Steam pentru a adăuga acel joc.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Gestionează depozitele</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Despre</value></data>

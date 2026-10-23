@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Vítejte v LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua na palubě</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>NAPOSLEDY PŘIDÁNO</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Stav pluginu</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Nedávno přidané</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Zobrazit podrobnosti</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Kontrola Steamu…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Přihlášeno ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Použít doporučená nastavení</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Režim: BetterSteamTools · FastFetch zapnutý</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Nainstalovat náš slavný plugin</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Přidá tlačítko „Add via LuaTools“ na stránky obchodu Steam.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Ano, prosím</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Ne, děkuji</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Jdeme na to!</value></data>
@@ -375,48 +372,6 @@ Tím se smažou soubory .lua ze Steam\config\stplug-in.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Automatické stažení z prvního dostupného zdroje</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Pro tuto hru nebyly nalezeny žádné dostupné zdroje</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· přes {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Plugin LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Plugin LuaTools pro Steam! — Nyní používá LuaLoader místo Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Stav</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Dostupná aktualizace</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Nainstalovaná verze</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Nejnovější verze</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Zavaděč (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Zjištěn Millennium — LuaTools běží vedle něj. Instalace zakáže vlastní kopii tohoto pluginu v Millenniu, takže vkládá pouze LuaLoader.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader se nainstaluje do složky Steam. Tato aplikace funguje jako backend — pokud ji zavřete z oznamovací oblasti, plugin přestane fungovat!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Instalovat</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Aktualizovat</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Přeinstalovat</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Odinstalovat</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Zkontrolovat aktualizace</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Kontrola…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Nainstalováno</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Nenainstalováno</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Aktuální</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Zastaralé</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>neznámá</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>offline</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>GitHub není dostupný pro kontrolu aktualizací.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Port 8080 už používá jiný program — prohlížečový most pluginu nemusí fungovat. Zavřete cokoli, co tento port používá, a znovu nainstalujte nebo restartujte Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Tímto se Steam zavře a restartuje, aby se zavaděč projevil. Pokračovat?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Restartovat Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Plugin</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Plugin nainstalován. Steam se restartuje, aby jej načetl.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Instalace selhala: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Plugin odebrán. Steam se restartuje.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Odinstalace selhala: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Je dostupná aktualizace.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Máte nejnovější verzi.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Instalace Steamu nebyla nalezena.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>GitHub není dostupný pro stažení nejnovější verze.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Ve vydání {0} chybí {1} nebo {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Ověření hashe {0} selhalo.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip neobsahoval public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Hlavní funkce</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Přidá tlačítko „Add via LuaTools“ na stránky obchodu Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Automaticky se aktualizuje</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Funguje s Millennium i bez něj</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…nebo sem přetáhněte odkaz ze SteamDB / obchodu Steam a hru tím přidejte.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Spravovat depoty</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>O hře</value></data>

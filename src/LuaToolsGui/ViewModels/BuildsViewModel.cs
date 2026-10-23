@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -220,7 +220,7 @@ public partial class BuildsViewModel : PagedListViewModel<LuaTileViewModel>
         // dropdown blank. Snap it to the default and persist, rather than showing an empty box.
         if (!PageSizeOptions.Contains(SelectedPageSize)) SelectedPageSize = "10";
 
-        // Any install (Add page, drag-drop, plugin) captures into the vault on a background thread.
+        // Any install (Add page, drag-drop) captures into the vault on a background thread.
         // Refresh so a new build shows up without the user leaving the page.
         _vault.VaultChanged += appId => OnUi(() =>
         {

@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>Καλώς ήρθατε στο LuaTools</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Lua στη συλλογή</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>ΤΕΛΕΥΤΑΙΑ ΠΡΟΣΘΗΚΗ</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Κατάσταση προσθέτου</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Προστέθηκαν πρόσφατα</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Προβολή λεπτομερειών</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Έλεγχος Steam…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Συνδεθήκατε ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Εφαρμογή προτεινόμενων ρυθμίσεων</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Λειτουργία: BetterSteamTools · FastFetch ενεργό</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Εγκατάσταση του διάσημου πρόσθετού μας</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Προσθέτει το κουμπί «Add via LuaTools» στις σελίδες του Steam Store.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Ναι, παρακαλώ</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Όχι, ευχαριστώ</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Πάμε!</value></data>
@@ -375,48 +372,6 @@
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>Αυτόματη λήψη από την πρώτη διαθέσιμη πηγή</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Δεν βρέθηκαν διαθέσιμες πηγές για αυτό το παιχνίδι</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· μέσω {0}</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>Πρόσθετο LuaTools</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>Το πρόσθετο LuaTools για το Steam! — Χρησιμοποιεί πλέον LuaLoader αντί για Shittenium</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Κατάσταση</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Διαθέσιμη ενημέρωση</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Εγκατεστημένη έκδοση</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>Τελευταία έκδοση</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Frontend</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Φορτωτής (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Εντοπίστηκε το Millennium — το LuaTools εκτελείται παράλληλα. Η εγκατάσταση απενεργοποιεί το αντίγραφο αυτού του πρόσθετου του Millennium, ώστε να κάνει ένεση μόνο το LuaLoader.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>Το LuaLoader εγκαθίσταται στον φάκελο του Steam. Αυτή η εφαρμογή λειτουργεί ως backend — αν την κλείσετε από την περιοχή ειδοποιήσεων, το πρόσθετο θα πάψει να λειτουργεί!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Εγκατάσταση</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Ενημέρωση</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Επανεγκατάσταση</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Απεγκατάσταση</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Έλεγχος για ενημερώσεις</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Έλεγχος…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Εγκατεστημένο</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Μη εγκατεστημένο</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Ενημερωμένο</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Παλαιό</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>άγνωστη</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>εκτός σύνδεσης</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Δεν ήταν δυνατή η σύνδεση στο GitHub για έλεγχο ενημερώσεων.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Ένα άλλο πρόγραμμα χρησιμοποιεί ήδη τη θύρα 8080 — η γέφυρα προγράμματος περιήγησης του plugin ενδέχεται να μη λειτουργεί. Κλείστε ό,τι χρησιμοποιεί αυτή τη θύρα και επανεγκαταστήστε ή επανεκκινήστε το Steam.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Αυτό θα κλείσει και θα επανεκκινήσει το Steam για να εφαρμοστεί ο φορτωτής. Συνέχεια;</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Επανεκκίνηση Steam</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Πρόσθετο</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Το πρόσθετο εγκαταστάθηκε. Το Steam επανεκκινείται για να το φορτώσει.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Η εγκατάσταση απέτυχε: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Το πρόσθετο αφαιρέθηκε. Το Steam επανεκκινείται.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Η απεγκατάσταση απέτυχε: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Υπάρχει διαθέσιμη ενημέρωση.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Είστε ενημερωμένοι.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Δεν βρέθηκε εγκατάσταση του Steam.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>Δεν ήταν δυνατή η σύνδεση στο GitHub για λήψη της τελευταίας έκδοσης.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>Από την έκδοση {0} λείπει το {1} ή το {2}.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>Η επαλήθευση hash του {0} απέτυχε.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>Το plugin.zip δεν περιείχε το public/luatools.js.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Αξιοσημείωτα χαρακτηριστικά</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Προσθέτει ένα κουμπί «Add via LuaTools» στις σελίδες του καταστήματος Steam</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Ενημερώνεται αυτόματα</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Λειτουργεί με ή χωρίς το Millennium</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…ή σύρετε έναν σύνδεσμο SteamDB / καταστήματος Steam για να προσθέσετε αυτό το παιχνίδι.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Διαχείριση depots</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Σχετικά</value></data>

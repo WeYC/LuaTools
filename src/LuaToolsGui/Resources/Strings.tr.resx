@@ -134,7 +134,6 @@
   <data name="Home_Welcome" xml:space="preserve"><value>LuaTools'a hoş geldiniz</value></data>
   <data name="Home_LuasOnBoard" xml:space="preserve"><value>Eklenen Lua'lar</value></data>
   <data name="Home_LastAdded" xml:space="preserve"><value>SON EKLENEN</value></data>
-  <data name="Home_PluginStatus" xml:space="preserve"><value>Eklenti durumu</value></data>
   <data name="Home_RecentlyAdded" xml:space="preserve"><value>Son eklenenler</value></data>
   <data name="Home_ViewDetails" xml:space="preserve"><value>Ayrıntıları görüntüle</value></data>
   <data name="Home_CheckingSteam" xml:space="preserve"><value>Steam denetleniyor…</value></data>
@@ -178,8 +177,6 @@
   <data name="Onboarding_SignedIn" xml:space="preserve"><value>Giriş yapıldı ✓</value></data>
   <data name="Onboarding_Recommended_Title" xml:space="preserve"><value>Önerilen ayarları uygula</value></data>
   <data name="Onboarding_Recommended_Detail" xml:space="preserve"><value>Mod: BetterSteamTools · FastFetch açık</value></data>
-  <data name="Onboarding_Plugin_Title" xml:space="preserve"><value>Ünlü eklentimizi yükle</value></data>
-  <data name="Onboarding_Plugin_Detail" xml:space="preserve"><value>Steam mağaza sayfalarına "Add via LuaTools" düğmesini ekler.</value></data>
   <data name="Onboarding_Yes" xml:space="preserve"><value>Evet, lütfen</value></data>
   <data name="Onboarding_No" xml:space="preserve"><value>Hayır, teşekkürler</value></data>
   <data name="Onboarding_Go" xml:space="preserve"><value>Hadi başlayalım!</value></data>
@@ -375,48 +372,6 @@ Bu, .lua dosyalarını Steam\config\stplug-in konumundan siler.</value></data>
   <data name="Add_FastFetch_Hint" xml:space="preserve"><value>İlk kullanılabilir kaynaktan otomatik indir</value></data>
   <data name="Add_FastFetch_NoSource" xml:space="preserve"><value>Bu oyun için kullanılabilir kaynak bulunamadı</value></data>
   <data name="Add_FastFetch_Via" xml:space="preserve"><value>· {0} aracılığıyla</value></data>
-  <data name="Plugin_Title" xml:space="preserve"><value>LuaTools Eklentisi</value></data>
-  <data name="Plugin_Subtitle" xml:space="preserve"><value>LuaTools Steam eklentisi! — Artık Shittenium yerine LuaLoader kullanıyor</value></data>
-  <data name="Plugin_CardTitle" xml:space="preserve"><value>Durum</value></data>
-  <data name="Plugin_Badge_UpdateAvailable" xml:space="preserve"><value>Güncelleme mevcut</value></data>
-  <data name="Plugin_Row_InstalledVersion" xml:space="preserve"><value>Kurulu sürüm</value></data>
-  <data name="Plugin_Row_LatestVersion" xml:space="preserve"><value>En son sürüm</value></data>
-  <data name="Plugin_Row_Frontend" xml:space="preserve"><value>Ön yüz</value></data>
-  <data name="Plugin_Row_Loader" xml:space="preserve"><value>Yükleyici (winmm.dll)</value></data>
-  <data name="Plugin_Millennium_Coexisting" xml:space="preserve"><value>Millennium algılandı — LuaTools onun yanında çalışır. Kurulum, yalnızca LuaLoader enjekte etsin diye bu eklentinin Millennium'a ait kopyasını devre dışı bırakır.</value></data>
-  <data name="Plugin_Footer" xml:space="preserve"><value>LuaLoader, Steam klasörünüze kurulur. Bu uygulama arka uç olarak çalışır — sistem tepsisinden kapatırsanız eklenti artık çalışmaz!</value></data>
-  <data name="Plugin_Btn_Install" xml:space="preserve"><value>Kur</value></data>
-  <data name="Plugin_Btn_Update" xml:space="preserve"><value>Güncelle</value></data>
-  <data name="Plugin_Btn_Reinstall" xml:space="preserve"><value>Yeniden kur</value></data>
-  <data name="Plugin_Btn_Uninstall" xml:space="preserve"><value>Kaldır</value></data>
-  <data name="Plugin_Btn_CheckForUpdates" xml:space="preserve"><value>Güncellemeleri denetle</value></data>
-  <data name="Plugin_Checking" xml:space="preserve"><value>Denetleniyor…</value></data>
-  <data name="Plugin_Status_Installed" xml:space="preserve"><value>Kuruldu</value></data>
-  <data name="Plugin_Status_NotInstalled" xml:space="preserve"><value>Kurulu değil</value></data>
-  <data name="Plugin_Status_UpToDate" xml:space="preserve"><value>Güncel</value></data>
-  <data name="Plugin_Status_OutOfDate" xml:space="preserve"><value>Güncel değil</value></data>
-  <data name="Plugin_Version_Unknown" xml:space="preserve"><value>bilinmiyor</value></data>
-  <data name="Plugin_Version_Offline" xml:space="preserve"><value>çevrimdışı</value></data>
-  <data name="Plugin_Status_OfflineCheck" xml:space="preserve"><value>Güncellemeleri denetlemek için GitHub'a ulaşılamadı.</value></data>
-  <data name="Plugin_Status_Port8080Busy" xml:space="preserve"><value>Başka bir program zaten 8080 portunu kullanıyor — eklentinin tarayıcı köprüsü çalışmayabilir. O portu kullanan şeyi kapatın ve yeniden yükleyin veya Steam'i yeniden başlatın.</value></data>
-  <data name="Plugin_Confirm_RestartBody" xml:space="preserve"><value>Bu, yükleyiciyi uygulamak için Steam'i kapatıp yeniden başlatacak. Devam edilsin mi?</value></data>
-  <data name="Plugin_Confirm_RestartCaption" xml:space="preserve"><value>Steam'i yeniden başlat</value></data>
-  <data name="Plugin_Toast_Title" xml:space="preserve"><value>Eklenti</value></data>
-  <data name="Plugin_Toast_Installed" xml:space="preserve"><value>Eklenti kuruldu. Yüklemek için Steam yeniden başlatılıyor.</value></data>
-  <data name="Plugin_Toast_InstallFailed" xml:space="preserve"><value>Kurulum başarısız: {0}</value></data>
-  <data name="Plugin_Toast_Removed" xml:space="preserve"><value>Eklenti kaldırıldı. Steam yeniden başlatılıyor.</value></data>
-  <data name="Plugin_Toast_UninstallFailed" xml:space="preserve"><value>Kaldırma başarısız: {0}</value></data>
-  <data name="Plugin_Toast_UpdateAvailable" xml:space="preserve"><value>Bir güncelleme mevcut.</value></data>
-  <data name="Plugin_Toast_UpToDate" xml:space="preserve"><value>Güncelsiniz.</value></data>
-  <data name="Plugin_Err_SteamNotFound" xml:space="preserve"><value>Steam kurulumu bulunamadı.</value></data>
-  <data name="Plugin_Err_GithubUnreachable" xml:space="preserve"><value>En son sürümü almak için GitHub'a ulaşılamadı.</value></data>
-  <data name="Plugin_Err_MissingAssets" xml:space="preserve"><value>{0} sürümünde {1} veya {2} eksik.</value></data>
-  <data name="Plugin_Err_VerifyFailed" xml:space="preserve"><value>{0} karma doğrulaması başarısız oldu.</value></data>
-  <data name="Plugin_Err_NoLuatoolsJs" xml:space="preserve"><value>plugin.zip, public/luatools.js dosyasını içermiyordu.</value></data>
-  <data name="Plugin_About_Header" xml:space="preserve"><value>Öne çıkan özellikler</value></data>
-  <data name="Plugin_Feature_StoreButton" xml:space="preserve"><value>Steam mağaza sayfalarına bir “Add via LuaTools” düğmesi ekler</value></data>
-  <data name="Plugin_Feature_AutoUpdate" xml:space="preserve"><value>Kendini otomatik olarak günceller</value></data>
-  <data name="Plugin_Feature_Millennium" xml:space="preserve"><value>Millennium olsun ya da olmasın çalışır</value></data>
   <data name="Drop_LinkHint" xml:space="preserve"><value>…ya da o oyunu eklemek için bir SteamDB / Steam mağaza bağlantısı sürükleyin.</value></data>
   <data name="Manage_Action_ManageBuild" xml:space="preserve"><value>Depoları yönet</value></data>
   <data name="Manage_AboutHeader" xml:space="preserve"><value>Hakkında</value></data>

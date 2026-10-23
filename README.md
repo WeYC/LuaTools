@@ -9,11 +9,10 @@
 
   [Discord](https://discord.gg/luatools) • [Website](https://lua.tools) • [Git Mirror](https://git.lua.tools/luatools)
   
-  A Windows desktop client for managing Steam manifest/lua configurations, built with WPF on .NET 8.
+  A Windows desktop client for managing Steam manifest/lua configurations, built with WPF on .NET 10.
     
   LuaTools browses and installs manifest sources, edits `stplug-in` lua files (depot pinning,
-  per-depot enable/disable), manages unlocker modes, and injects a companion plugin into Steam's
-  store pages.
+  per-depot enable/disable), and manages unlocker modes.
   
   It ships fully translated in 29 languages and auto-updates via Velopack.
   <br><sub>Found a translation error? Tell us about it over on [Discord](https://discord.gg/luatools)</sub>
@@ -36,17 +35,15 @@
 ## Requirements
 
 - Windows 10/11
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) (the released installer bundles a
-  check for the .NET 8 **Desktop Runtime** and installs it if missing; [building from source](https://github.com/madoiscool/LuaTools/blob/main/CONTRIBUTING.md#building-from-source--developing) needs
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (the released installer bundles a
+  check for the .NET 10 **Desktop Runtime** and installs it if missing; [building from source](https://github.com/madoiscool/LuaTools/blob/main/CONTRIBUTING.md#building-from-source--developing) needs
   the full SDK
 
 ## Installation
-You can find release builds on the [luatools website](https://lua.tools/app) or in the [releases](https://github.com/madoiscool/LuaTools/releases/latest) tab. 
+You can find release builds in the [releases](https://github.com/WeYC/LuaTools/releases/latest) tab.
 
 ## Credits / Adjacent software
 
-- [Millennium](https://steambrew.app/): the Steam plugin framework whose injection API this app
-  polyfills when Millennium isn't installed
 - [Velopack](https://velopack.io/): installer and auto-update framework
 - [DepotDownloaderMod](https://github.com/SteamAutoCracks/DepotDownloaderMod): downloads depot content
   from Steam's CDN, powering the Depots page's Download action. A fork of

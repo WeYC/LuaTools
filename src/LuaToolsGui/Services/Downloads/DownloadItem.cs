@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace LuaToolsGui.Services.Downloads;
 
@@ -89,8 +89,8 @@ public partial class DownloadItem : ObservableObject
     /// that far). NEVER faults. Inspect <see cref="Status"/> to distinguish failure from cancellation.
     /// </summary>
     /// <remarks>
-    /// This is what the protocol/silent-install path and <c>PluginAddService</c> await in place of the
-    /// old inline download→install chain. Without it, backgrounding the download would let
+    /// This is what the protocol/silent-install path awaits in place of the old inline
+    /// download→install chain. Without it, backgrounding the download would let
     /// <c>App</c>'s post-silent-install shutdown timer fire while the download was still running.
     /// </remarks>
     public Task<JobResult?> Completion => _completion.Task;

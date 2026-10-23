@@ -7,9 +7,9 @@ namespace LuaToolsGui.Services;
 /// SHA-256 verification of downloaded GitHub release assets.
 /// </summary>
 /// <remarks>
-/// These two helpers existed as byte-identical private statics in both <c>UnlockerService</c> and
-/// <c>PluginInstallerService</c>. Every service that downloads an executable and then runs it needs
-/// them, so they live in one place rather than being copied a third and fourth time.
+/// These two helpers existed as byte-identical private statics in more than one service. Every service
+/// that downloads an executable and then runs it needs them, so they live in one place rather than being
+/// copied again.
 /// </remarks>
 internal static class AssetHash
 {

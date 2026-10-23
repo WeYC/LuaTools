@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.IO.Compression;
 using LuaToolsGui.Models;
 
@@ -9,10 +9,10 @@ namespace LuaToolsGui.Services.Downloads;
 /// and Denuvo fixes.
 /// </summary>
 /// <remarks>
-/// This is the convergence point for what used to be three separate download+install implementations:
-/// <c>DownloadViewModel.DownloadFromSourceAsync</c>, <c>PluginAddService.DownloadAsync</c> and
-/// <c>HttpServerService.DownloadAndInstallAsync</c>. The Hubcap-vs-lua.tools branch, the ZIP byte
-/// sniff (previously copy-pasted into three files) and the staged-file cleanup now exist exactly once.
+/// This is the convergence point for what used to be separate download+install implementations,
+/// including <c>DownloadViewModel.DownloadFromSourceAsync</c>. The Hubcap-vs-lua.tools branch, the ZIP
+/// byte sniff (previously copy-pasted into several files) and the staged-file cleanup now exist exactly
+/// once.
 /// </remarks>
 public class ManifestJobFactory(
     LuaToolsApiClient api,

@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -40,10 +40,8 @@
     <Resource Include="icon.ico" />
   </ItemGroup>
 
-  <!-- Nothing in public/ is bundled anymore. The frontend (luatools.js) is fetched from GitHub releases
-       by PluginInstallerService into %AppData%\LuaToolsGui\plugin; the Millennium-aware polyfill is inline
-       (CefInjectorService.BuildInlinePolyfill); and the manifest-source list falls back to the hardcoded
-       defaults in HttpServerService when api.json is absent. -->
+  <!-- Nothing in public/ is bundled. The store-page plugin feature was removed along with everything it
+       needed (plugin installer, CEF injector, local HTTP backend), so no frontend assets ship with the app. -->
 
 
   <!-- Localization RESX. We hand-maintain Strings.Designer.cs (works under dotnet watch), so disable the
