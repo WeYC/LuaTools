@@ -119,11 +119,13 @@ jobs:
           echo "Releasing $CURRENT; channel already has $LATEST"
 
           if [ "$LATEST" = "$CURRENT" ]; then
-            echo "::notice title=Replacing v${CURRENT}::A release for v${CURRENT} already exists; deleting it so this build replaces it."
-            # Delete the GitHub release and its tag, so the upload below can recreate both cleanly.
+            echo "::notice title=Replacing v${CURRENT}::A release for v${CURRENT} already exists; deleting the release so this build replaces it."
+            # Delete the RELEASE only. The git tag is deliberately kept: --cleanup-tag would remove
+            # refs/tags/$TAG as well, and the tag is this repo's own record of the commit behind the
+            # version, not something a rebuild should discard.
             if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-              gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
-              echo "Deleted existing release $TAG."
+              gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes
+              echo "Deleted the existing release $TAG (its git tag stays)."
             else
               echo "No GitHub release for $TAG; the channel file was stale. Continuing."
             fi
