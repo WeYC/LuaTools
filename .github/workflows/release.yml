@@ -4,13 +4,24 @@ name: Release
 # asset set as upstream (LuaTools-win-Setup.exe, LuaTools-win-Portable.zip, LuaTools-<ver>-full.nupkg,
 # releases.win.json, assets.win.json, RELEASES) so the in-app auto-updater works unchanged.
 #
-# Trigger: push a tag like v1.1.3, or run the workflow manually (version is read from the csproj).
+# Triggers:
+#   * push a tag like v1.1.3
+#   * run it manually (version is read from the csproj)
+#   * auto-release.yml calls it after merging an upstream release. Tag and version are passed in
+#     rather than resolved from the ref, because a reusable workflow starts from its own empty ref.
 
 on:
   push:
     tags:
       - "v*"
   workflow_dispatch:
+  workflow_call:
+    inputs:
+      tag:
+        description: Release tag to publish (e.g. v1.3.2). Empty resolves it from the ref/csproj.
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -29,7 +40,10 @@ jobs:
         id: version
         shell: bash
         run: |
-          if [ "${{ github.ref_type }}" = "tag" ]; then
+          TAG="${{ inputs.tag }}"
+          if [ -n "$TAG" ]; then
+            VERSION="${TAG#v}"
+          elif [ "${{ github.ref_type }}" = "tag" ]; then
             VERSION="${GITHUB_REF_NAME#v}"
           else
             # Single source of truth: the <Version> tag in the app project.

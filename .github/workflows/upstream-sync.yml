@@ -1,0 +1,163 @@
+name: Upstream auto-release
+
+# Watches the upstream repository for a new release. When one appears it merges upstream into this
+# fork and, only if the merge is clean, calls release.yml to build and publish.
+#
+# Deliberately separate from release.yml: that file stays a plain "build and publish" workflow with
+# no upstream logic, and this one only ever calls it after a successful merge. Nothing here pushes a
+# tag, so a single sync can never build twice — release.yml creates the release and its tag itself.
+
+on:
+  schedule:
+    # Every 6 hours. Upstream releases a few times a month, so this is plenty; a GitHub-scheduled run
+    # can be delayed at peak times, which does not matter at this cadence.
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Release again even when a release for that tag already exists.
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  # Never let two syncs run at once: both would merge into main and push.
+  group: upstream-auto-release
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_REPO: madoiscool/LuaTools
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.decide.outputs.should_release }}
+      tag: ${{ steps.decide.outputs.tag }}
+      mode: ${{ steps.decide.outputs.mode }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history: the merge below needs a real merge base against upstream.
+          fetch-depth: 0
+
+      - name: Decide what to do
+        id: decide
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          set -euo pipefail
+          FORCE="${FORCE:-false}"
+
+          # Is there a RELEASE (not merely a tag) for this tag in our own repo? A tag alone proves
+          # nothing: tags get pushed by hand and by failed runs, and this fork already carries a
+          # v1.1.3 tag whose release predates upstream. The release is the only real marker.
+          released() {
+            local tag="$1" body
+            if body=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag" 2>/dev/null); then
+              # A draft release is not visible to users, so count it as not published yet.
+              [ "$(printf '%s' "$body" | jq -r '.draft')" = "false" ]
+            else
+              return 1
+            fi
+          }
+
+          echo "Looking up the latest release of $UPSTREAM_REPO"
+          if ! REL=$(gh api "repos/$UPSTREAM_REPO/releases/latest" 2>/dev/null); then
+            echo "::error::Could not read ${UPSTREAM_REPO}'s releases. Check that the repository still exists and is public."
+            exit 1
+          fi
+          UPSTREAM_TAG=$(printf '%s' "$REL" | jq -r '.tag_name // empty')
+          if [ -z "$UPSTREAM_TAG" ]; then
+            echo "::error::Upstream has no published release to track."
+            exit 1
+          fi
+          echo "Latest upstream release: $UPSTREAM_TAG"
+
+          # What this fork would call its own build, from the app project.
+          LOCAL_VERSION=$(grep -oE '<Version>[^<]+' src/LuaToolsGui/LuaToolsGui.csproj \
+            | head -1 | sed 's/<Version>//')
+          echo "local version: $LOCAL_VERSION"
+
+          if ! released "$UPSTREAM_TAG"; then
+            # A new upstream release: merge it, then publish the merged tree under the upstream tag.
+            MODE=merge
+            TAG="$UPSTREAM_TAG"
+          else
+            # Upstream has nothing new for us. Still publish when our own version has no release yet
+            # (a local change bumped <Version>), or this fork would sit on an older build than its own
+            # source and users would never receive it.
+            MODE=local
+            TAG="v$LOCAL_VERSION"
+            if [ "$FORCE" != "true" ] && released "$TAG"; then
+              echo "Nothing to do: $TAG is already released and upstream has nothing newer."
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+
+          echo "Plan: mode=$MODE tag=$TAG"
+          {
+            echo "mode=$MODE"
+            echo "tag=$TAG"
+            echo "should_release=true"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Fetch upstream
+        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
+        env:
+          TAG: ${{ steps.decide.outputs.tag }}
+        run: |
+          set -euo pipefail
+          git remote add upstream "https://github.com/$UPSTREAM_REPO.git" 2>/dev/null || true
+          git fetch upstream --tags --force
+          echo "Fetched upstream; $(git rev-parse --short "$TAG") is the release commit."
+
+      - name: Merge upstream
+        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
+        env:
+          TAG: ${{ steps.decide.outputs.tag }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Merge the release TAG, not the branch head: the tag is the exact commit upstream built and
+          # published, so it cannot drift mid-run. A merge commit (never a rebase) keeps our local
+          # commits intact and keeps future merges fast-forwardable. If our fork is already at or past
+          # that commit this is a no-op, which is fine: the release below still runs.
+          echo "Merging $TAG into the fork"
+          if ! git merge --no-edit --no-squash "$TAG"; then
+            git merge --abort || true
+            echo "::error title=Upstream merge conflict::Merging $TAG conflicts with this fork's changes. Resolve it by hand: git fetch upstream && git merge $TAG, fix the conflicts, commit, push, then re-run this workflow."
+            exit 1
+          fi
+
+      - name: Push merged main
+        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
+        run: |
+          set -euo pipefail
+          # Only main is pushed, and only when the merge actually added commits. No tag is pushed here,
+          # so nothing double-triggers: the release job below creates its own release and tag.
+          if [ "$(git rev-list --count origin/main..HEAD)" -gt 0 ]; then
+            git push origin HEAD:main
+            echo "Pushed merged main."
+          else
+            echo "Already up to date; nothing to push."
+          fi
+
+  # Separate job so the release only runs after a successful sync, and so this file never needs to
+  # know how to build anything.
+  release:
+    needs: sync
+    if: needs.sync.outputs.should_release == 'true'
+    uses: ./.github/workflows/release.yml
+    with:
+      tag: ${{ needs.sync.outputs.tag }}
+    permissions:
+      contents: write
