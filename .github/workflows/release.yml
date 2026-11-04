@@ -22,6 +22,13 @@ on:
         required: false
         type: string
         default: ""
+      ref:
+        description: >
+          Commit to build. Empty uses github.sha. The caller must pass the commit it wants released:
+          github.sha here is the CALLER's start commit, which after a merge is not the merged tree.
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: write
@@ -31,10 +38,48 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # Check out the tree that is actually being released.
+      #
+      # `ref` MUST come from the caller whenever it merged anything, and this is not cosmetic.
+      # github.sha inside a reusable workflow is the CALLER's start commit. For upstream-sync that is
+      # the sync job's commit BEFORE it merged upstream and before it bumped <Version>, so building it
+      # publishes the released version number containing the PREVIOUS code. It shipped that way for
+      # v1.3.3: the tag points at f856468 but the release binaries were built from its parent
+      # fc4080d, silently dropping that run's "Align app version" commit. That instance was harmless
+      # (the omitted change only touched the csproj <Version>, which -p:Version overrides anyway), but
+      # the first merge carrying real upstream code would have published old code under a new version
+      # - and clients compare version numbers only, so they would never receive the change.
+      #
+      # Deliberately NOT `ref: inputs.tag`: on the first release of a version that tag does not exist
+      # yet. Nothing pushes it beforehand - upstream-sync only pushes main, and `vpk upload --tag`
+      # below is what creates it. Checking out a nonexistent ref would fail the job outright.
+      #
+      # Falls back to github.sha for a tag push (GITHUB_REF is the tag, so github.sha is its commit)
+      # and for a manual branch run, where that is the intent.
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.ref || github.sha }}
+          # Full history: vpk needs it to produce delta packages against the previous release.
           fetch-depth: 0
+
+      # Warn when the tag doesn't describe the tree being built. The build is versioned by -p:Version
+      # regardless, so this is a signal, not a gate: it fires when a tag was reused or moved, or when
+      # a caller forgot to pass ref and we fell back to its (possibly pre-merge) github.sha - exactly
+      # the v1.3.3 shape.
+      - name: Check tag against the checked-out tree
+        if: inputs.tag != ''
+        shell: bash
+        env:
+          TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          WANT="${TAG#v}"
+          HAVE="$(grep -oE '<Version>[^<]+' src/LuaToolsGui/LuaToolsGui.csproj | head -1 | sed 's/<Version>//')"
+          echo "Tag $TAG names version $WANT; checked-out csproj declares $HAVE (building $(git rev-parse --short HEAD))"
+          if [ "$WANT" != "$HAVE" ]; then
+            echo "::warning title=Tag/csproj version mismatch::Tag ${TAG} names version ${WANT}, but the checked-out tree declares ${HAVE}. Building ${WANT} from commit $(git rev-parse --short HEAD). Pass the merged commit as 'ref', or align <Version> in the tag's commit."
+          fi
 
       - name: Resolve version
         id: version

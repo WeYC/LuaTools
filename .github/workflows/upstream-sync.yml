@@ -148,6 +148,11 @@ jobs:
     if: needs.check.outputs.should_release == 'true' && needs.check.outputs.mode == 'merge'
     runs-on: ubuntu-latest
 
+    outputs:
+      # The merged + version-aligned commit that the release must build. Empty when sync is skipped
+      # (local mode), which release.yml treats as "use the branch HEAD".
+      sha: ${{ steps.push.outputs.sha }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -213,6 +218,7 @@ jobs:
           fi
 
       - name: Push merged main
+        id: push
         run: |
           set -euo pipefail
           # Only main is pushed, and only when the merge actually added commits. No tag is pushed here,
@@ -223,6 +229,12 @@ jobs:
           else
             echo "Already up to date; nothing to push."
           fi
+          # The commit the release must build. This is the merged, version-aligned tree - the whole
+          # point of this job - and it is NOT the caller's github.sha and NOT the tag (which does not
+          # exist yet: vpk upload creates it in the release job). Emitting it here is what lets the
+          # release check out the right tree instead of the pre-merge one.
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "Releasing from $(git rev-parse --short HEAD)"
 
   # ── Stage 3: build + publish ────────────────────────────────────────────────────────────────────
   # Separate job so the release only runs after a successful sync, and so this file never needs to
@@ -238,5 +250,9 @@ jobs:
     uses: ./.github/workflows/release.yml
     with:
       tag: ${{ needs.check.outputs.tag }}
+      # In merge mode: the merged commit sync just pushed. In local mode sync was skipped, so this is
+      # empty and release.yml falls back to the branch HEAD - correct there, since a local bump is
+      # already on main and needs no merge.
+      ref: ${{ needs.sync.outputs.sha }}
     permissions:
       contents: write
