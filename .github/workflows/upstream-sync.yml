@@ -3,6 +3,17 @@ name: Upstream auto-release
 # Watches the upstream repository for a new release. When one appears it merges upstream into this
 # fork and, only if the merge is clean, calls release.yml to build and publish.
 #
+# Split into three stages on purpose:
+#   check   - NO checkout. Three GitHub API reads. Answers "is there anything to build?" in seconds.
+#   sync    - full-history checkout + merge, and ONLY when check found a merge is genuinely needed.
+#   release - the reusable build/publish workflow.
+#
+# The split is what makes the 6-hourly schedule cheap. A scheduled tick almost always finds nothing
+# to do, and the old single-job form paid for a clone of the fork's entire history (fetch-depth: 0)
+# on every one of them, purely to read one <Version> line out of the csproj before concluding
+# "nothing to do". Now the no-op path touches no files at all, and the expensive clone happens only
+# on the rare tick that actually has upstream work to merge.
+#
 # Deliberately separate from release.yml: that file stays a plain "build and publish" workflow with
 # no upstream logic, and this one only ever calls it after a successful merge. Nothing here pushes a
 # tag, so a single sync can never build twice — release.yml creates the release and its tag itself.
@@ -10,7 +21,8 @@ name: Upstream auto-release
 on:
   schedule:
     # Every 6 hours. Upstream releases a few times a month, so this is plenty; a GitHub-scheduled run
-    # can be delayed at peak times, which does not matter at this cadence.
+    # can be delayed at peak times, which does not matter at this cadence. The check job is nearly
+    # free, so the cadence can stay short for latency without the old per-tick clone cost.
     - cron: "0 */6 * * *"
   workflow_dispatch:
     inputs:
@@ -31,7 +43,8 @@ env:
   UPSTREAM_REPO: madoiscool/LuaTools
 
 jobs:
-  sync:
+  # ── Stage 1: the cheap gate ─────────────────────────────────────────────────────────────────────
+  check:
     runs-on: ubuntu-latest
     outputs:
       should_release: ${{ steps.decide.outputs.should_release }}
@@ -39,12 +52,8 @@ jobs:
       mode: ${{ steps.decide.outputs.mode }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          # Full history: the merge below needs a real merge base against upstream.
-          fetch-depth: 0
-
+      # Intentionally NO actions/checkout. Everything below is a GitHub API read, so a tick with no
+      # upstream release finishes without cloning anything.
       - name: Decide what to do
         id: decide
         env:
@@ -54,17 +63,25 @@ jobs:
           set -euo pipefail
           FORCE="${FORCE:-false}"
 
-          # Is there a RELEASE (not merely a tag) for this tag in our own repo? A tag alone proves
-          # nothing: tags get pushed by hand and by failed runs, and this fork already carries a
-          # v1.1.3 tag whose release predates upstream. The release is the only real marker.
+          # Is a release for this tag PUBLISHED and USABLE in our own repo?
+          #
+          # Two stricter conditions than "a release row exists", both load-bearing:
+          #
+          #  * A draft is not visible to users, so it is not published yet.
+          #  * The release must carry the feed asset the Velopack client actually reads
+          #    (releases.win.json, non-zero). A release that appeared before its assets finished
+          #    uploading would otherwise count as "already released", and this workflow would latch
+          #    onto "Nothing to do" forever - never retrying, leaving the fork permanently behind.
+          #    Cheap to test here, and it is the only place that could catch that state.
+          #
+          # The RELEASE (not merely a tag) is the marker: tags get pushed by hand and by failed runs,
+          # and this fork already carries a v1.1.3 tag whose release predates upstream.
           released() {
             local tag="$1" body
-            if body=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag" 2>/dev/null); then
-              # A draft release is not visible to users, so count it as not published yet.
-              [ "$(printf '%s' "$body" | jq -r '.draft')" = "false" ]
-            else
-              return 1
-            fi
+            body=$(gh api "repos/$GITHUB_REPOSITORY/releases/tags/$tag" 2>/dev/null) || return 1
+            [ "$(printf '%s' "$body" | jq -r '.draft')" = "false" ] || return 1
+            [ "$(printf '%s' "$body" \
+                  | jq -r '[.assets[] | select(.name == "releases.win.json" and .size > 0)] | length')" -gt 0 ]
           }
 
           echo "Looking up the latest release of $UPSTREAM_REPO"
@@ -79,9 +96,24 @@ jobs:
           fi
           echo "Latest upstream release: $UPSTREAM_TAG"
 
-          # What this fork would call its own build, from the app project.
-          LOCAL_VERSION=$(grep -oE '<Version>[^<]+' src/LuaToolsGui/LuaToolsGui.csproj \
-            | head -1 | sed 's/<Version>//')
+          # What this fork would call its own build: the same single-source-of-truth <Version> the
+          # release workflow reads, fetched through the contents API and base64-decoded instead of
+          # through a checkout.
+          #
+          # tr -d strips the newline the API's JSON escapes leave behind. Trailing whitespace makes
+          # some base64 implementations (busybox, the git-bash one) emit "invalid input" and exit
+          # non-zero even though they decoded the payload fine, which would fail this step spuriously.
+          CSPROJ=$(gh api \
+                "repos/$GITHUB_REPOSITORY/contents/src/LuaToolsGui/LuaToolsGui.csproj?ref=${GITHUB_REF_NAME:-main}" \
+                --jq '.content' | tr -d ' \n\r\t' | base64 -d) || {
+            echo "::error::Could not read src/LuaToolsGui/LuaToolsGui.csproj from ${GITHUB_REPOSITORY}."
+            exit 1
+          }
+          LOCAL_VERSION=$(printf '%s' "$CSPROJ" | grep -oE '<Version>[^<]+' | head -1 | sed 's/<Version>//' || true)
+          if [ -z "$LOCAL_VERSION" ]; then
+            echo "::error::No <Version> element in src/LuaToolsGui/LuaToolsGui.csproj."
+            exit 1
+          fi
           echo "local version: $LOCAL_VERSION"
 
           if ! released "$UPSTREAM_TAG"; then
@@ -91,7 +123,7 @@ jobs:
           else
             # Upstream has nothing new for us. Still publish when our own version has no release yet
             # (a local change bumped <Version>), or this fork would sit on an older build than its own
-            # source and users would never receive it.
+            # source and users would never receive it. This needs no merge, so sync is skipped.
             MODE=local
             TAG="v$LOCAL_VERSION"
             if [ "$FORCE" != "true" ] && released "$TAG"; then
@@ -108,10 +140,24 @@ jobs:
             echo "should_release=true"
           } >> "$GITHUB_OUTPUT"
 
+  # ── Stage 2: merge, only when there is something to merge ──────────────────────────────────────
+  sync:
+    needs: check
+    # Gate the whole job, not just its steps: in `local` mode there is nothing to merge, and this is
+    # the job that owns the expensive fetch-depth: 0 clone.
+    if: needs.check.outputs.should_release == 'true' && needs.check.outputs.mode == 'merge'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history: the merge below needs a real merge base against upstream.
+          fetch-depth: 0
+
       - name: Fetch upstream
-        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
         env:
-          TAG: ${{ steps.decide.outputs.tag }}
+          TAG: ${{ needs.check.outputs.tag }}
         run: |
           set -euo pipefail
           git remote add upstream "https://github.com/$UPSTREAM_REPO.git" 2>/dev/null || true
@@ -119,9 +165,8 @@ jobs:
           echo "Fetched upstream; $(git rev-parse --short "$TAG") is the release commit."
 
       - name: Merge upstream
-        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
         env:
-          TAG: ${{ steps.decide.outputs.tag }}
+          TAG: ${{ needs.check.outputs.tag }}
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
@@ -144,9 +189,8 @@ jobs:
       # this step our csproj would keep saying 1.1.3 while the channel already holds 1.3.2, and
       # `vpk pack` refuses to publish a version that is not strictly higher than the existing one.
       - name: Align app version with upstream
-        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
         env:
-          TAG: ${{ steps.decide.outputs.tag }}
+          TAG: ${{ needs.check.outputs.tag }}
         run: |
           set -euo pipefail
           VERSION="${TAG#v}"
@@ -169,7 +213,6 @@ jobs:
           fi
 
       - name: Push merged main
-        if: steps.decide.outputs.should_release == 'true' && steps.decide.outputs.mode == 'merge'
         run: |
           set -euo pipefail
           # Only main is pushed, and only when the merge actually added commits. No tag is pushed here,
@@ -181,13 +224,19 @@ jobs:
             echo "Already up to date; nothing to push."
           fi
 
+  # ── Stage 3: build + publish ────────────────────────────────────────────────────────────────────
   # Separate job so the release only runs after a successful sync, and so this file never needs to
   # know how to build anything.
   release:
-    needs: sync
-    if: needs.sync.outputs.should_release == 'true'
+    needs: [check, sync]
+    # sync is SKIPPED (not failed) in `local` mode, so a plain needs: dependency would skip this job
+    # too. Accept skipped, reject anything that actually went wrong.
+    if: >-
+      !cancelled()
+      && needs.check.outputs.should_release == 'true'
+      && (needs.sync.result == 'success' || needs.sync.result == 'skipped')
     uses: ./.github/workflows/release.yml
     with:
-      tag: ${{ needs.sync.outputs.tag }}
+      tag: ${{ needs.check.outputs.tag }}
     permissions:
       contents: write
