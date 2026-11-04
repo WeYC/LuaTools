@@ -83,7 +83,7 @@ public partial class App : Application
 
     private UpdateService Updates => _host.Services.GetRequiredService<UpdateService>();
 
-    // Guards RunUpdateFlowAsync so overlapping triggers (startup + the re-poke a DLL/Steam restart causes)
+    // Guards CheckForUpdatesAsync so overlapping triggers (startup + the re-poke a DLL/Steam restart causes)
     // never run it concurrently. A second caller drops out immediately.
     private readonly System.Threading.SemaphoreSlim _updateFlowGate = new(1, 1);
 
@@ -154,26 +154,49 @@ public partial class App : Application
                 string.Format(LuaToolsGui.Resources.Strings.Launch_ApplyFailed, result.Error), error: true);
     }
 
-    /// <summary>Set by OnStartup to <see cref="RunUpdateFlowAsync"/> so non-UI callers can run the exact
+    /// <summary>Set by OnStartup to <see cref="CheckForUpdatesAsync"/> so non-UI callers can run the exact
     /// same update flow instead of a divergent one.</summary>
     internal static Func<Task>? RunUpdateFlow;
 
-    /// <summary>The Steam-open update flow (fully silent): check for and apply an app update. Called on a
-    /// loader (--tray-locked) launch and on the Steam-open re-check poke; safe to call repeatedly.</summary>
-    private async Task RunUpdateFlowAsync()
+    /// <summary>
+    /// Check for an app update, stage it, and decide how to apply it. Safe to call repeatedly; overlapping
+    /// calls are dropped by <see cref="_updateFlowGate"/>.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Two apply strategies, and the choice is what <see cref="Program.SessionTrayLock"/> is for:
+    /// a Steam-launched (--tray-locked) instance restarts itself immediately, because nobody is looking
+    /// at it and it must be current before it does anything; any other launch only STAGES the update,
+    /// which <see cref="OnExit"/> then applies after the user quits. Silently restarting the app out from
+    /// under someone who just double-clicked the shortcut would be worse than updating a little later.
+    /// </para>
+    /// <para>
+    /// This distinction is also why the check itself no longer depends on the flag. Detecting an update
+    /// must happen on every launch or a fork without the loader never detects one at all; only the
+    /// decision to force a restart belongs to the loader context.
+    /// </para>
+    /// </remarks>
+    private async Task CheckForUpdatesAsync()
     {
         if (!_updateFlowGate.Wait(0)) return; // another run already in progress
         try
         {
-            // Stage + immediately apply any app update. ApplyAndRestart() terminates this process; the
-            // relaunched instance (launched with --tray-locked) re-enters this same flow via OnStartup once
-            // it's already current, so this run's job ends here. There is nothing safe left for THIS process
-            // to do.
-            try { await Updates.CheckAndStageAsync(); } catch { /* offline / not installed */ }
-            if (Updates.HasStagedUpdate)
+            try { await Updates.CheckAndStageAsync(); }
+            catch { /* offline / not installed / feed unreachable. Retry next launch. */ }
+
+            if (!Updates.HasStagedUpdate) return;
+
+            if (Program.SessionTrayLock)
             {
+                // Steam-launched: apply now and relaunch into the new build, keeping the loader's session
+                // semantics so the new instance closes to tray rather than quitting. This terminates this
+                // process; the relaunched one re-enters here already current.
                 Dispatcher.Invoke(() => Updates.ApplyAndRestart(new[] { "--minimized", "--tray-locked" }));
+                return;
             }
+
+            // Interactive launch: stage only. OnExit applies it after the user quits, so the app is never
+            // yanked away mid-use. Nothing more to do here; the staged update is process-wide state.
         }
         finally { _updateFlowGate.Release(); }
     }
@@ -264,11 +287,11 @@ public partial class App : Application
         if (Program.RecheckUpdatesSignal is not null)
             System.Threading.ThreadPool.RegisterWaitForSingleObject(
                 Program.RecheckUpdatesSignal,
-                (_, _) => _ = RunUpdateFlowAsync(),
+                (_, _) => _ = CheckForUpdatesAsync(),
                 null, System.Threading.Timeout.Infinite, executeOnlyOnce: false);
 
         // Expose the same flow to non-UI callers.
-        RunUpdateFlow = RunUpdateFlowAsync;
+        RunUpdateFlow = CheckForUpdatesAsync;
 
         // Settings' own "Sign in with Discord" button → browser OAuth (unchanged).
         settingsVm.RequestSignIn = () => main.SignInCommand.ExecuteAsync(null);
@@ -296,8 +319,8 @@ public partial class App : Application
                 LuaToolsGui.Resources.Strings.Lang_Changed_Restart,
                 () => settingsVm.RequestRestart?.Invoke()));
 
-        // App updates apply silently via RunUpdateFlowAsync (restart-on-Steam-open), so no "Restart"
-        // prompt toast.
+        // App updates are staged by CheckForUpdatesAsync and applied by OnExit on interactive launches
+        // (or immediately on a Steam launch), so there is no "Restart" prompt toast to show.
         var download = _host.Services.GetRequiredService<DownloadViewModel>();
 
         var manage = _host.Services.GetRequiredService<ManageViewModel>();
@@ -425,12 +448,12 @@ public partial class App : Application
         if (url is not null)
             HandleProtocolUrl(url);
 
-        // Background, non-blocking Steam-open update flow, but ONLY in the loader context
-        // (--tray-locked). A manual / protocol / silent-install launch skips it, so the app never
-        // auto-updates or restarts mid-manual-use. It only happens when Steam launches us. (Velopack only
-        // updates to a STRICTLY HIGHER version, so every release must bump --packVersion.)
-        if (Program.SessionTrayLock)
-            _ = RunUpdateFlowAsync();
+        // Background, non-blocking update check on EVERY launch. This used to run only in the loader
+        // context (--tray-locked), but this fork ships no loader: nothing ever passes that flag, so the
+        // check never ran and no release was ever detected. The flag now only decides how a staged
+        // update is APPLIED (see CheckForUpdatesAsync), never whether one is looked for at all.
+        // (Velopack only updates to a STRICTLY HIGHER version, so every release must bump --packVersion.)
+        _ = CheckForUpdatesAsync();
 
         // Anonymous app-launch ping (Umami). Fire-and-forget; never blocks.
         _ = _host.Services.GetRequiredService<AnalyticsService>().TrackAppLaunchAsync();

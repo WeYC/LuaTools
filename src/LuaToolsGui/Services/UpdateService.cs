@@ -4,8 +4,9 @@ using Velopack.Sources;
 namespace LuaToolsGui.Services;
 
 /// <summary>
-/// Silent background auto-update via Velopack + GitHub Releases. Checks on launch,
-/// downloads the (delta) update in the background, and stages it to apply on next exit.
+/// Silent background auto-update via Velopack + GitHub Releases. Checks on launch, downloads the (delta)
+/// update in the background, and stages it to apply on next exit — or immediately, on a Steam-launched
+/// (--tray-locked) instance. See <c>App.CheckForUpdatesAsync</c> for which of those applies.
 /// <para>
 /// Resilience is two-layered: (1) <see cref="ProxiedFileDownloader"/> routes each repo's feed + package
 /// downloads through GitHub mirrors for blocked/throttled regions (e.g. China); (2) it tries each repo in

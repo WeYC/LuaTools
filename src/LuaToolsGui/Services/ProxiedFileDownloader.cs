@@ -23,11 +23,42 @@ public class ProxiedFileDownloader : IFileDownloader
 {
     private static readonly HttpClient Http = AppHttp.Create(TimeSpan.FromMinutes(30));
 
+    /// <summary>
+    /// Sent on EVERY request, including the direct api.github.com one.
+    /// </summary>
+    /// <remarks>
+    /// Load-bearing, not cosmetic. Velopack's <c>GitBase.GetRequestHeaders</c> sets only Accept (plus
+    /// an Authorization header when a token is configured). This class builds its own request instead
+    /// of using Velopack's <c>HttpClientFileDownloader</c> — which adds <c>User-Agent: Velopack/x.y.z</c>
+    /// itself — so it silently dropped that header. The GitHub REST API rejects a request with NO
+    /// User-Agent outright ("403 Request forbidden by administrative rules... make sure your request
+    /// has a User-Agent header"), and the update feed read is exactly such a request. Dropping it
+    /// pushed every feed lookup off the direct API and onto the lua.tools API mirror, so any user whose
+    /// mirror was unavailable or rate-limited got no update check at all.
+    /// </remarks>
+    private const string UserAgent = "LuaTools";
+
     private static HttpRequestMessage Request(string url, IDictionary<string, string>? headers)
     {
         var req = new HttpRequestMessage(HttpMethod.Get, url);
+
+        bool callerSuppliedUserAgent = false;
         if (headers is not null)
-            foreach (var (k, v) in headers) req.Headers.TryAddWithoutValidation(k, v);
+        {
+            foreach (var (k, v) in headers)
+            {
+                if (string.Equals(k, "User-Agent", StringComparison.OrdinalIgnoreCase))
+                    callerSuppliedUserAgent = true;
+                req.Headers.TryAddWithoutValidation(k, v);
+            }
+        }
+
+        // Only added when the caller didn't. TryAddWithoutValidation APPENDS for a repeated header, so
+        // adding ours unconditionally would produce a two-value User-Agent that GitHub rejects just as
+        // readily as a missing one.
+        if (!callerSuppliedUserAgent)
+            req.Headers.TryAddWithoutValidation("User-Agent", UserAgent);
+
         return req;
     }
 
