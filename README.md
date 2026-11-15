@@ -34,10 +34,13 @@
 
 ## Requirements
 
-- Windows 10/11
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) (the released installer bundles a
-  check for the .NET 10 **Desktop Runtime** and installs it if missing; [building from source](https://github.com/madoiscool/LuaTools/blob/main/CONTRIBUTING.md#building-from-source--developing) needs
-  the full SDK
+- Windows 10/11 (64-bit)
+
+Nothing else. The .NET 10 Desktop runtime is bundled inside the app, so it does not need to be
+installed separately and works on a machine with no .NET at all.
+
+[Building from source](https://github.com/madoiscool/LuaTools/blob/main/CONTRIBUTING.md#building-from-source--developing)
+does need the full [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 ## Installation
 You can find release builds in the [releases](https://github.com/WeYC/LuaTools/releases/latest) tab.

@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.IO;
 using LuaToolsGui.Services;
 using Xunit;
@@ -11,6 +12,19 @@ namespace LuaToolsGui.Tests;
 /// </summary>
 public class LuaVaultTests : IDisposable
 {
+    /// <summary>
+    /// The generated label for a build, in the RUNNING culture.
+    /// <para>
+    /// Asserting the literal "Build 18234567" would only pass on an English machine: DisplayLabel goes
+    /// through <see cref="LuaToolsGui.Resources.Strings.Builds_Variant_Build"/>, so a Chinese box yields
+    /// "版本 18234567" and a Japanese one "ビルド 18234567". That is the one assertion here that depends
+    /// on the user's language, and it must not - the property under test is "the build id survives the
+    /// rename", not "the app is in English".
+    /// </para>
+    /// </summary>
+    private static string BuildLabel(string buildId) =>
+        string.Format(CultureInfo.CurrentCulture, LuaToolsGui.Resources.Strings.Builds_Variant_Build, buildId);
+
     private const long AppId = 386940;
 
     private readonly string _tmp = Path.Combine(Path.GetTempPath(), $"luavaulttest_{Guid.NewGuid():N}");
@@ -543,7 +557,7 @@ public class LuaVaultTests : IDisposable
         File.WriteAllText(Path.Combine(_plugIn, $"{AppId}_18234567.lua"), PinnedBuildLua);
         _vault.AdoptLooseBuildLuas(AppId);
         var variant = Assert.Single(_vault.GetVariants(AppId));
-        Assert.Equal("Build 18234567", variant.DisplayLabel);
+        Assert.Equal(BuildLabel("18234567"), variant.DisplayLabel);
 
         _vault.Rename(AppId, variant.Hash, "pre-nerf patch");
 
@@ -562,7 +576,7 @@ public class LuaVaultTests : IDisposable
         _vault.Rename(AppId, hash, "temp");
         _vault.Rename(AppId, hash, "   ");
 
-        Assert.Equal("Build 18234567", _vault.GetVariants(AppId).Single().DisplayLabel);
+        Assert.Equal(BuildLabel("18234567"), _vault.GetVariants(AppId).Single().DisplayLabel);
     }
 
     /// <summary>Deleting what Steam is currently running would orphan the live lua with no way back.</summary>

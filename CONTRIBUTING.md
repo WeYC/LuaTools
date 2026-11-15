@@ -19,9 +19,20 @@ dotnet test
 
 ### Releases
 
-Official builds are packaged and signed by the maintainers, so the release tooling isn't part of
-this repo. Released builds are framework-dependent (~10 MB) and the setup auto-installs the .NET 10
-Desktop Runtime on a clean machine; the app then self-updates through Velopack.
+Official builds are packaged and signed by the maintainers.
+
+Released builds are **self-contained**: the .NET 10 Desktop runtime ships inside the package
+(`dotnet publish --self-contained true`, wired up in `LuaToolsGui.csproj` for Release builds), so the
+setup installs nothing else and users need no runtime preinstalled. That makes the payload ~175 MB
+instead of ~10 MB; Velopack's delta packages keep the per-update download small after the first
+release. `vpk pack` therefore takes no `--framework` argument — a bundled runtime plus a runtime
+requirement would install a redundant copy.
+
+One consequence: a self-contained build **pins** the runtime version (whatever `10.0.x` the SDK was
+at build time) and does not roll forward. Each .NET servicing release needs a rebuild and a new app
+release to reach users. [`release.yml`](.github/workflows/release.yml) fails the build if the publish
+output is missing `hostpolicy.dll` / `coreclr.dll`, so a regression back to framework-dependent is
+caught in CI rather than on a user's machine.
 
 To produce a local build for testing, `dotnet publish -c Release` is enough.
 

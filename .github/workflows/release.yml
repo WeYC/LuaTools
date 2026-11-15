@@ -106,14 +106,16 @@ jobs:
         with:
           dotnet-version: "10.0.x"
 
-      # Framework-dependent publish (no bundled runtime), matching the ~10 MB release builds.
-      # The .NET 10 Desktop Runtime is instead installed by the Velopack installer, see --framework below.
+      # Self-contained publish: the .NET 10 Desktop runtime ships INSIDE the payload, so the installer
+      # no longer has to download/install it and the app runs on a machine with nothing .NET installed.
+      # The payload is ~175 MB unpacked (Microsoft.NETCore.App + Microsoft.WindowsDesktop.App) instead
+      # of ~10 MB; Velopack's delta packages keep the incremental download small after the first release.
       - name: Publish
         run: >
           dotnet publish src/LuaToolsGui/LuaToolsGui.csproj
           -c Release
           -r win-x64
-          --self-contained false
+          --self-contained true
           -p:Version=${{ steps.version.outputs.version }}
           -o publish
 
@@ -194,7 +196,36 @@ jobs:
           fi
           echo "OK: v${LATEST} -> v${CURRENT}"
 
-      # --framework net10.0-x64-desktop: the setup installs the .NET 10 Desktop Runtime when missing.
+      # Guard: prove the runtime is actually IN the payload before packing. Without this, a regression
+      # (--self-contained flipping back to false, or someone re-adding --framework) produces a perfectly
+      # valid installer that fails at launch on a clean machine with "You must install .NET Desktop
+      # Runtime" - and nothing in the release pipeline would have complained.
+      #
+      # Self-contained layout puts hostpolicy.dll / coreclr.dll flat next to LuaTools.exe. We check the
+      # two that only ship self-contained: hostpolicy (host resolution) and the WPF native stack, whose
+      # absence is the classic "runs on my machine, crashes on the user's" symptom.
+      - name: Verify the runtime is bundled
+        shell: pwsh
+        run: |
+          $missing = @('LuaTools.exe','hostpolicy.dll','coreclr.dll','PresentationNative_cor3.dll','wpfgfx_cor3.dll') |
+            Where-Object { -not (Test-Path (Join-Path publish $_)) }
+          if ($missing) {
+            Write-Host "publish\ contents:"
+            Get-ChildItem publish | Select-Object -ExpandProperty Name
+            Write-Error "Self-contained payload is incomplete; missing: $($missing -join ', ')"
+            exit 1
+          }
+          $mb = [math]::Round(((Get-ChildItem publish -Recurse -File | Measure-Object Length -Sum).Sum / 1MB), 1)
+          Write-Host "OK: runtime is bundled. Payload is $mb MB (expect ~175 MB)."
+          if ($mb -lt 100) {
+            Write-Error "Payload is only $mb MB - far below a self-contained build. Did the publish fall back to framework-dependent?"
+            exit 1
+          }
+
+      # NOTE: no --framework here, and that is load-bearing. --framework makes the SETUP download and
+      # install a .NET runtime; the runtime is now inside the payload, so asking for one would install a
+      # redundant copy (Velopack's bootstrapping docs call this out explicitly for --self-contained).
+      # --runtime win-x64 is a different thing: the minimum OS/architecture the release supports.
       # --channel win keeps the asset naming identical to upstream (LuaTools-win-*).
       - name: Pack
         run: >
@@ -208,7 +239,6 @@ jobs:
           --icon src/LuaToolsGui/icon.ico
           --channel win
           --runtime win-x64
-          --framework net10.0-x64-desktop
           --outputDir Releases
 
       - name: Upload to GitHub Releases

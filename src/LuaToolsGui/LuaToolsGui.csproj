@@ -16,6 +16,22 @@
     <StartupObject>LuaToolsGui.Program</StartupObject>
   </PropertyGroup>
 
+  <!-- Bundle the .NET 10 Desktop runtime into the payload so the app no longer needs it installed.
+       Release only: Debug / `dotnet watch` stay framework-dependent and fast.
+
+       These are the PUBLISH-scoped properties, not SelfContained/RuntimeIdentifier, and that is
+       deliberate. SelfContained would make this a self-contained EXECUTABLE at BUILD time too, and
+       LuaToolsGui.Tests is a framework-dependent executable that ProjectReferences this one - the SDK
+       then rejects `dotnet test -c Release` with NETSDK1151 (executable reference self-contained
+       mismatch). PublishSelfContained only affects the publish verb, so building/tests are untouched.
+
+       Runtime version note: a self-contained build PINS the runtime (currently 10.0.15) and does not
+       roll forward. Every .NET servicing release therefore needs a rebuild + new app release. -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <PublishRuntimeIdentifier>win-x64</PublishRuntimeIdentifier>
+    <PublishSelfContained>true</PublishSelfContained>
+  </PropertyGroup>
+
   <!-- UseWindowsForms (for the tray NotifyIcon) injects WinForms into the implicit global usings, which
        collides with WPF types (Application, UserControl, DragEventArgs…). We reference WinForms fully
        qualified, so strip those implicit usings to keep WPF unambiguous. -->
