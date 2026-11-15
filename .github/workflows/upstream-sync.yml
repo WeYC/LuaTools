@@ -8,11 +8,30 @@ name: Upstream auto-release
 #   sync    - full-history checkout + merge, and ONLY when check found a merge is genuinely needed.
 #   release - the reusable build/publish workflow.
 #
-# The split is what makes the 6-hourly schedule cheap. A scheduled tick almost always finds nothing
-# to do, and the old single-job form paid for a clone of the fork's entire history (fetch-depth: 0)
-# on every one of them, purely to read one <Version> line out of the csproj before concluding
-# "nothing to do". Now the no-op path touches no files at all, and the expensive clone happens only
-# on the rare tick that actually has upstream work to merge.
+# The merge and the build NEVER run on a tick that has nothing to do: check gates both jobs, so a
+# run where upstream has no new release costs three API reads and touches no files at all.
+#
+# HOW UPSTREAM RELEASES ARE DETECTED
+# ----------------------------------
+# GitHub Actions has NO cross-repository "release published" event. A release in madoiscool/LuaTools
+# cannot trigger a workflow here; only a webhook configured by that repository could, and we do not
+# control it. So autonomous detection has to POLL, and the poll frequency is the latency/volume knob:
+#
+#   * schedule          - the safety net below. Weekly, so the Actions tab stays quiet.
+#   * repository_dispatch - the instant path. Any external watcher (a feed poller, a cron on a box
+#                         you own, one curl) can fire this the moment upstream publishes:
+#
+#       curl -X POST -H "Authorization: Bearer $TOKEN" \
+#            -H "Accept: application/vnd.github+json" \
+#            https://api.github.com/repos/WeYC/LuaTools/dispatches \
+#            -d '{"event_type":"upstream-release"}'
+#
+#   * workflow_dispatch  - manual, with an optional force.
+#
+# Trade-off, stated plainly: with only the weekly poll, a new upstream release can take up to 7 days
+# to be picked up. Wire the dispatch above (or shorten the cron) if that is too slow. Every run is
+# cheap either way, but a run with nothing to do still appears in the Actions tab, which is the
+# reason this is not simply left at every 6 hours.
 #
 # Deliberately separate from release.yml: that file stays a plain "build and publish" workflow with
 # no upstream logic, and this one only ever calls it after a successful merge. Nothing here pushes a
@@ -20,10 +39,12 @@ name: Upstream auto-release
 
 on:
   schedule:
-    # Every 6 hours. Upstream releases a few times a month, so this is plenty; a GitHub-scheduled run
-    # can be delayed at peak times, which does not matter at this cadence. The check job is nearly
-    # free, so the cadence can stay short for latency without the old per-tick clone cost.
-    - cron: "0 */6 * * *"
+    # Weekly, Monday 03:00 UTC. Safety net only: it catches a missed dispatch, nothing more.
+    - cron: "0 3 * * 1"
+  # Fired by an external watcher the moment upstream publishes. No inputs: the check job reads
+  # upstream's state directly, so the payload carries nothing we need.
+  repository_dispatch:
+    types: [upstream-release]
   workflow_dispatch:
     inputs:
       force:
@@ -100,11 +121,16 @@ jobs:
           # release workflow reads, fetched through the contents API and base64-decoded instead of
           # through a checkout.
           #
+          # Pinned to main rather than ${GITHUB_REF_NAME}: this workflow only ever operates on main
+          # (sync merges into and pushes main), so the version that matters is main's. Depending on
+          # the triggering ref would read the wrong csproj when someone runs workflow_dispatch from a
+          # feature branch, and then compare that against upstream.
+          #
           # tr -d strips the newline the API's JSON escapes leave behind. Trailing whitespace makes
           # some base64 implementations (busybox, the git-bash one) emit "invalid input" and exit
           # non-zero even though they decoded the payload fine, which would fail this step spuriously.
           CSPROJ=$(gh api \
-                "repos/$GITHUB_REPOSITORY/contents/src/LuaToolsGui/LuaToolsGui.csproj?ref=${GITHUB_REF_NAME:-main}" \
+                "repos/$GITHUB_REPOSITORY/contents/src/LuaToolsGui/LuaToolsGui.csproj?ref=main" \
                 --jq '.content' | tr -d ' \n\r\t' | base64 -d) || {
             echo "::error::Could not read src/LuaToolsGui/LuaToolsGui.csproj from ${GITHUB_REPOSITORY}."
             exit 1
