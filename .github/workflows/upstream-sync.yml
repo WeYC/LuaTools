@@ -1,4 +1,4 @@
-name: Upstream auto-release
+name: ci
 
 # Watches the upstream repository for a new release. When one appears it merges upstream into this
 # fork and, only if the merge is clean, calls release.yml to build and publish.
